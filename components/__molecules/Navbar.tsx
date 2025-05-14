@@ -14,7 +14,7 @@ const Navbar = () => {
           <Link className="text-amber-50" href="/headphones">
             Headphones
           </Link>
-          <Link className="text-amber-50" href="/speakers">
+          <Link className="text-amber-50" href="/SpeakersPage">
             Speakers
           </Link>
           <Link className="text-amber-50" href="/earphones">
