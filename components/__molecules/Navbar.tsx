@@ -4,7 +4,7 @@ import { FiShoppingCart } from "react-icons/fi";
 
 const Navbar = () => {
   return (
-    <div className="w-full  text-white absolute">
+    <div className="w-full  text-white absolute bg-black">
       <div className="max-w-7xl mx-auto flex justify-between items-center  py-6">
         <h1 className="font-bold text-xl text-amber-50 ">audiophile</h1>
         <div className="space-x-10 flex  gap-8 ">
