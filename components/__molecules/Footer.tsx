@@ -22,7 +22,7 @@ export default function Footer() {
           <nav className="flex gap-6 text-sm tracking-widest uppercase">
             <Link href="/">Home</Link>
             <Link href="/headphones">Headphones</Link>
-            <Link href="/speakers">Speakers</Link>
+            <Link href="/SpeakersPage">Speakers</Link>
             <Link href="/earphones">Earphones</Link>
           </nav>
 
