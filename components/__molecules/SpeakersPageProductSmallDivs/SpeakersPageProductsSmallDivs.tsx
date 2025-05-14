@@ -13,21 +13,21 @@ function SpeakersPageProductsSmallDivs({
   image,
 }: SpeakersPageProductsSmallDivsInterface) {
   return (
-    <div className="max-w-[350px] w-[100%] flex items-center justify-center">
+    <div className="max-w-[350px] w-[100%] flex items-center justify-center max-[600px]:max-w-[100%]">
       <div className="bg-[#F1F1F1] w-[100%] flex items-center justify-center rounded-[8px] flex-col relative">
         <Image
           src={image}
           alt={alt}
           width={500}
           height={500}
-          className="w-[122px] h-[160px] absolute top-[-80px]"
+          className="w-[122px] h-[160px] absolute top-[-80px] max-[800px]:w-[80px] max-[800px]:h-[104px] max-[800px]:top-[-50px]"
         />
-        <div className="w-[122px] h-[18px] bg-[#000000] blur-[30px] absolute top-[60px]"></div>
-        <div className="w-[100%] items-center justify-center flex flex-col pb-[30px] pt-[116px] ">
+        <div className="w-[122px] h-[18px] bg-[#000000] blur-[20px] absolute top-[60px] max-[800px]:w-[94px] max-[800px]:h-[14px] max-[800px]:top-[40px] "></div>
+        <div className="w-[100%] items-center justify-center flex flex-col pb-[30px] pt-[116px] max-[800px]:pt-[88px] max-[800px]:pb-[22px] max-[600px]:gap-[15px]">
           <h3 className="text-[18px] text-[#000000] font-bold tracking-[1.4px]">
             {h3}
           </h3>
-          <div className="flex items-center gap-[14px] ">
+          <div className="flex items-center gap-[14px]  ">
             <p>Shop</p>
             <Image
               src={RightArrowImage}
