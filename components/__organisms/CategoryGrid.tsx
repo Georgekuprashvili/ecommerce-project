@@ -7,7 +7,7 @@ export default function CategoryGrid() {
         <CategoryCard
           title="Headphones"
           image="/assets/image-xx99-mark-one-headphones.jpg"
-          href="/headphones"
+          href="/Headphones"
         />
         <CategoryCard
           title="Speakers"

@@ -16,23 +16,23 @@ function SpeakersPageProducsSection({
 }: SpeakersPageProducsSectionInterface) {
   return (
     <div className={classname}>
-      <div className="flex items-center justify-center bg-[#F1F1F1] max-w-[540px] w-[100%] py-[100px]">
+      <div className="flex items-center justify-center bg-[#F1F1F1] max-w-[540px] w-[100%] py-[100px] max-[800px]:max-w-[100%] max-[600px]:py-[40px]">
         <Image
           src={image}
           alt="Speaker"
           width={500}
           height={500}
-          className="w-[290px] h-[350px]"
+          className="max-w-[290px] w-[100%] h-[350px] "
         />
       </div>
-      <div>
+      <div className="flex flex-col max-[800px]:items-center">
         <h3 className="text-[#D87D4A] text-[14px] tracking-[10px] font-normal">
           NEW PRODUCT
         </h3>
-        <h1 className="mt-[16px] text-[#000000] text-[40px] leading-[44px] tracking-[1.43px] font-bold">
+        <h1 className="mt-[16px] text-[#000000] text-[40px] leading-[44px] tracking-[1.43px] font-bold max-[800px]:text-center max-[600px]:text-[28px]">
           {h1}
         </h1>
-        <p className="text-[15px] text-[#000000] leading-[25px] mt-[32px]">
+        <p className="text-[15px] text-[#000000] leading-[25px] mt-[32px] min-w-[300px] max-[800px]:text-center">
           {p}
         </p>
         <Button text="See Product" />
