@@ -12,12 +12,12 @@ export default function CategoryGrid() {
         <CategoryCard
           title="Speakers"
           image="/assets/image-zx9-speaker.jpg"
-          href="/speakers"
+          href="/SpeakersPage"
         />
         <CategoryCard
           title="Earphones"
           image="/assets/image-yx1-earphones.jpg"
-          href="/earphones"
+          href="/EarphonesPage"
         />
       </div>
     </div>

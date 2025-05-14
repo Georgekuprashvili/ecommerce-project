@@ -1,16 +1,19 @@
 import Image from "next/image";
 import React from "react";
 import RightArrowImage from "../../../public/assets/rightarrow.svg";
+import Link from "next/link";
 
 interface SpeakersPageProductsSmallDivsInterface {
   h3: string;
   image: string;
   alt: string;
+  href: string;
 }
 function SpeakersPageProductsSmallDivs({
   h3,
   alt,
   image,
+  href,
 }: SpeakersPageProductsSmallDivsInterface) {
   return (
     <div className="max-w-[350px] w-[100%] flex items-center justify-center max-[600px]:max-w-[100%]">
@@ -27,8 +30,14 @@ function SpeakersPageProductsSmallDivs({
           <h3 className="text-[18px] text-[#000000] font-bold tracking-[1.4px]">
             {h3}
           </h3>
-          <div className="flex items-center gap-[14px]  ">
-            <p>Shop</p>
+          <div className="flex items-center gap-[14px] ">
+          <Link
+            href={href}
+            className="flex items-center gap-[14px] cursor-pointer  "
+          >
+            <p className="text-[13px] font-bold text-[#000000] hover:text-[#D87D4A]">
+              Shop
+            </p>
             <Image
               src={RightArrowImage}
               alt="Right_arrow"
@@ -36,7 +45,7 @@ function SpeakersPageProductsSmallDivs({
               height={500}
               className="w-[5px] h-[10px]"
             />
-          </div>
+          </Link>
         </div>
       </div>
     </div>
