@@ -29,18 +29,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-<<<<<<< Updated upstream
-        <Navbar />
-
-        {children}
-        <Footer />
-=======
         <div>
           <Navbar />
           {children}
           <Footer />
         </div>
->>>>>>> Stashed changes
       </body>
     </html>
   );
