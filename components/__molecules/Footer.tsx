@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-black text-white px-6 py-12">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
+      <div className="max-w-[1110px] mx-auto flex flex-col md:flex-row justify-between gap-10">
         <div className="space-y-6 max-w-lg">
           <h2 className="text-2xl font-bold">audiophile</h2>
           <p className="text-gray-400 text-sm leading-relaxed">

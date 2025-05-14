@@ -1,7 +1,7 @@
 export default function ProductHero() {
   return (
     <section
-      className="bg-cover bg-center bg-no-repeat text-white px-6 py-20 h-{500px}"
+      className="bg-cover bg-center bg-no-repeat text-white px-6 py-20 flex-1 flex"
       style={{
         backgroundImage: "url('/assets/Bitmap.jpg')",
       }}
