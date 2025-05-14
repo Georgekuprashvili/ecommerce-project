@@ -10,7 +10,7 @@ type Props = {
 
 export default function CategoryCard({ title, image, href }: Props) {
   return (
-    <div className="rounded-xl bg-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col items-center py-8">
+    <div className="max-w-[500px] bg-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col items-center py-8">
       <Image
         src={image}
         alt={title}
