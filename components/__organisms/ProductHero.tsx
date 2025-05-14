@@ -1,11 +1,10 @@
+import Image from "next/image";
+
 export default function ProductHero() {
   return (
-    <section
-      className="bg-cover bg-center bg-no-repeat text-white px-6 py-20 flex-1 flex"
-      style={{
-        backgroundImage: "url('/assets/Bitmap.jpg')",
-      }}
-    >
+
+    <section className="bg-cover bg-center bg-no-repeat text-white px-6 py-20 h-{500px} bg-[#141414]">
+
       <div className="w-auto   flex flex-col md:flex-row items-center justify-start gap-10 min-h-[700px] px-4 md:px-45 py-10">
         <div className="text-center md:text-left md:max-w-md">
           <p className="text-sm tracking-[10px] text-white/50 uppercase mb-4">
@@ -22,6 +21,13 @@ export default function ProductHero() {
             See Product
           </button>
         </div>
+        <Image
+          src="/assets/photo1.jpg"
+          alt=" Earphones"
+          width={600}
+          height={400}
+          className="w-full h-full object-cover"
+        />
       </div>
     </section>
   );
