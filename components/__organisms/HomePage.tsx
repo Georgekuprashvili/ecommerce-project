@@ -12,7 +12,7 @@ export default function HomePage() {
       <HeroSection />
 
       <section className="w-full py-20 px-6">
-        <div className="mt-[100px] max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="mt-[100px] max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 max-md:gap-[70px]">
           <SpeakersPageProductsSmallDivs
             href="/Headphones"
             alt="HEADPHONES"

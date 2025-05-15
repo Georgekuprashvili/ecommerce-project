@@ -35,7 +35,7 @@ export default function HeadphonesPageComp() {
         ))}
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between gap-8 max-w-6xl w-full mt-32 px-4">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-8 max-w-6xl w-full mt-32 px-4 max-md:gap-[70px] ">
         <SpeakersPageProductsSmallDivs
           href="/Headphones"
           alt="HEADPHONES"

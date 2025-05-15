@@ -18,10 +18,10 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-col justify-between items-end gap-8 w-full md:w-auto">
-          <nav className="flex gap-6 text-sm tracking-widest uppercase">
+        <div className="flex flex-col justify-between items-end gap-8 w-full md:w-auto ">
+          <nav className="flex gap-6 text-sm tracking-widest uppercase flex-wrap ">
             <Link href="/">Home</Link>
-            <Link href="/headphones">Headphones</Link>
+            <Link href="/Headphones">Headphones</Link>
             <Link href="/SpeakersPage">Speakers</Link>
             <Link href="/EarphonesPage">Earphones</Link>
           </nav>
