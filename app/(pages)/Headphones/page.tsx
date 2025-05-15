@@ -1,8 +1,7 @@
-import { Headphones } from "lucide-react";
-
+import HeadphonesPageComp from "../../../components/__organisms/Headphonespage/Headphones";
 
 function headphones() {
-  return <Headphones />;
+  return <HeadphonesPageComp />;
 }
 
 export default headphones;
