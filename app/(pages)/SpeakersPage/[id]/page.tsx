@@ -1,11 +1,14 @@
-import React from "react";
+import SpeakersInnerPageComp from "../../../../components/__organisms/SpeakersInnerPageComp/SpeakersInnerPageComp";
 import data from "../../../../data.json";
-import SpeakersInnerPageComp from "@/components/__organisms/SpeakersInnerPageComp/SpeakersInnerPageComp";
-interface ProductPage {
-  params: { id: string };
+interface ParamsInterface {
+  params: any
 }
-export default function ProductPage({ params }: ProductPage) {
+
+function page({ params }: ParamsInterface) {
+  console.log(params);
+
   const product = data.find((item) => item.id === Number(params.id));
   if (!product) return <div>Product not found</div>;
   return <SpeakersInnerPageComp product={product} />;
 }
+export default page;

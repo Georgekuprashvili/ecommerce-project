@@ -1,10 +1,9 @@
 "use client";
-import { SpeakersInnerPageCompInterface } from "@/app/common/types/Type";
+
 import React from "react";
 import FirstSpeakerImage from "../../../public/assets/image-removebg-preview(38).svg";
 import SecondSpeakersImage from "../../../public/assets/image-removebg-preview(49).svg";
-import SpeakersInnerPageProductsSection from "@/components/__molecules/SpeakersInnerPageProductsSection.tsx/SpeakersInnerPageProductsSection";
-import SpeakersPageProductsSmallDivs from "@/components/__molecules/SpeakersPageProductSmallDivs/SpeakersPageProductsSmallDivs";
+
 import HeadphonesImage from "../../../public/assets/headphones.svg";
 import EarphoneImg from "../../../public/assets/earphones.svg";
 import AboutSection from "../AboutSection";
@@ -15,6 +14,9 @@ import zx7Second from "../../../public/assets/zx7second.svg";
 import zx9third from "../../../public/assets/zx9third.svg";
 import zx7third from "../../../public/assets/zx7third.svg";
 import Image from "next/image";
+import SpeakersInnerPageProductsSection from "../../__molecules/SpeakersInnerPageProductsSection.tsx/SpeakersInnerPageProductsSection";
+import { SpeakersInnerPageCompInterface } from "../../../app/common/types/Type";
+import SpeakersPageProductsSmallDivs from "../../__molecules/SpeakersPageProductSmallDivs/SpeakersPageProductsSmallDivs";
 function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
   console.log(product);
 

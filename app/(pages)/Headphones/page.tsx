@@ -1,4 +1,5 @@
-import Headphones from "@/components/__organisms/Headphones";
+import { Headphones } from "lucide-react";
+
 
 function headphones() {
   return <Headphones />;
