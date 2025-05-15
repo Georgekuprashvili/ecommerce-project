@@ -9,7 +9,6 @@ import AboutSection from "../AboutSection";
 import data from "../../../data.json";
 function SpeakersPageComp() {
   const Speakers = data.filter((item) => item.category === "speakers");
-
   return (
     <div className="w-[100%] flex items-center justify-center flex-col ">
       <p className="flex w-[100%] bg-[#000000] justify-center items-center py-[97px] text-[40px] text-[#FFFFFF] font-bold leading-[44px] tracking-[1.43px] max-[600px]:text-[28px]">
@@ -17,6 +16,7 @@ function SpeakersPageComp() {
       </p>
       {Speakers.map((item, key) => (
         <SpeakersPageProducsSection
+          link={item.id}
           key={key}
           h1={item.name}
           classname={`max-w-[1180px] w-[100%] mt-[160px] flex items-center justify-between px-[20px] gap-[20px] max-[800px]:flex-col max-[800px]:mt-[120px] max-[800px]:gap-[55px] ${
