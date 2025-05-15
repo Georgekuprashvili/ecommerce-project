@@ -33,16 +33,19 @@ function SpeakersPageComp() {
 
       <div className="max-w-[1180px] w-[100%] flex items-center justify-between mt-[160px] px-[20px] gap-[20px] max-[800px]:gap-[10px] max-[600px]:flex-col max-[600px]:gap-[55px] ">
         <SpeakersPageProductsSmallDivs
+          href="/Headphones"
           alt="HEADPHONES"
           image={HeadphonesImage}
           h3="HEADPHONES"
         />
         <SpeakersPageProductsSmallDivs
+          href="/SpeakersPage"
           image={FirstSpeakerImage}
           h3="SPEAKERS"
           alt="SPEAKERS"
         />
         <SpeakersPageProductsSmallDivs
+          href="/EarphonesPage"
           image={EarphoneImg}
           h3="EARPHONES"
           alt="EARPHONES"

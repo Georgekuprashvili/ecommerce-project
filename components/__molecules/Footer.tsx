@@ -23,7 +23,7 @@ export default function Footer() {
             <Link href="/">Home</Link>
             <Link href="/headphones">Headphones</Link>
             <Link href="/SpeakersPage">Speakers</Link>
-            <Link href="/earphones">Earphones</Link>
+            <Link href="/EarphonesPage">Earphones</Link>
           </nav>
 
           <div className="flex gap-4">

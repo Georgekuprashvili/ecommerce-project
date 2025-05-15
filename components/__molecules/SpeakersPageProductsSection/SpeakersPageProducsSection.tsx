@@ -1,3 +1,4 @@
+import Button from "@/components/__atoms/Button/Button";
 import Image from "next/image";
 import React from "react";
 
@@ -34,9 +35,7 @@ function SpeakersPageProducsSection({
         <p className="text-[15px] text-[#000000] leading-[25px] mt-[32px] min-w-[300px] w-[450px] max-[1000]:w-[350px] max-[800px]:text-center max-[800]:w-[100%]">
           {p}
         </p>
-        <button className="bg-[#D87D4A] px-[29px] py-[15px] mt-[40px] text-[#FFFFFF] text-[13px] font-bold cursor-pointer">
-          See Product
-        </button>
+        <Button text="See Product" />
       </div>
     </div>
   );
