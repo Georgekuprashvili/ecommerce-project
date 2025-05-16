@@ -8,7 +8,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center  py-6">
         <h1 className="font-bold text-xl text-amber-50 ">audiophile</h1>
         <div className="space-x-10 flex  gap-8 ">
+<<<<<<< Updated upstream
           <Link className="text-amber-50" href="/">
+=======
+
+          <Link className="text-amber-50" href="/HomePage">
+>>>>>>> Stashed changes
             Home
           </Link>
           <Link className="text-amber-50" href="/Headphones">
