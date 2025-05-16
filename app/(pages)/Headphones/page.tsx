@@ -1,7 +1,7 @@
-import Headphones from "@/components/__organisms/Headphones";
+import HeadphonesPageComp from "../../../components/__organisms/Headphonespage/Headphones";
 
 function headphones() {
-  return <Headphones />;
+  return <HeadphonesPageComp />;
 }
 
 export default headphones;

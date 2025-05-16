@@ -1,18 +1,21 @@
-import Button from "@/components/__atoms/Button/Button";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import Button from "../../__atoms/Button/Button";
 
 interface SpeakersPageProducsSectionInterface {
   image: string;
   classname: string;
   h1: React.ReactNode;
   p: React.ReactNode;
+  link: string;
 }
 function SpeakersPageProducsSection({
   image,
   classname,
   h1,
   p,
+  link,
 }: SpeakersPageProducsSectionInterface) {
   return (
     <div className={classname}>
@@ -32,10 +35,12 @@ function SpeakersPageProducsSection({
         <h1 className="mt-[16px] text-[#000000] text-[40px] leading-[44px] tracking-[1.43px] font-bold max-[800px]:text-center max-[600px]:text-[28px]">
           {h1}
         </h1>
-        <p className="text-[15px] text-[#000000] leading-[25px] mt-[32px] min-w-[300px] max-[800px]:text-center">
+        <p className="text-[15px] text-[#000000] leading-[25px] mt-[32px] min-w-[300px] w-[450px] max-[1000]:w-[350px] max-[800px]:text-center max-[800]:w-[100%]">
           {p}
         </p>
-        <Button text="See Product" />
+        <Link href={link}>
+          <Button text="See Product" />
+        </Link>
       </div>
     </div>
   );
