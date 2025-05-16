@@ -1,3 +1,8 @@
+export interface OtherProduct {
+  slug: string;
+  name: string;
+}
+
 export interface SpeakersInnerPageCompInterface {
   product: {
     name: string;
@@ -9,5 +14,6 @@ export interface SpeakersInnerPageCompInterface {
       quantity: number;
       item: string;
     }[];
+    others: OtherProduct[];
   };
 }
