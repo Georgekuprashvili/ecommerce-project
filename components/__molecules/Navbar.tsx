@@ -1,29 +1,13 @@
 "use client";
-<<<<<<< Updated upstream
 
-import Link from "next/link";
-import React, { useState } from "react";
-import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
-
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <nav className="w-full bg-black text-white z-50 relative">
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-6 px-4">
-        <h1 className="font-bold text-xl text-amber-50 max-md:hidden">
-          audiophile
-        </h1>
-
-        <div className="hidden md:flex space-x-10 items-center">
-=======
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
-import { FiShoppingCart } from "react-icons/fi";
+import React, { useState } from "react";
+import { FiMenu, FiShoppingCart, FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div
       className={`w-full  text-white  bg-black ${
@@ -39,7 +23,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center  py-6">
         <h1 className="font-bold text-xl text-amber-50 ">audiophile</h1>
         <div className="space-x-10 flex  gap-8 ">
->>>>>>> Stashed changes
+
           <Link className="text-amber-50" href="/">
             Home
           </Link>
@@ -86,7 +70,7 @@ const Navbar = () => {
           </Link>
         </div>
       )}
-    </nav>
+    </div>
   );
 };
 

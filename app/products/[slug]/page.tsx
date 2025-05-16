@@ -2,9 +2,7 @@ import SpeakersInnerPageComp from "../../../components/__organisms/SpeakersInner
 import data from "../../../data.json";
 
 interface ParamsInterface {
-  params: {
-    slug: string;
-  };
+  params: any;
 }
 
 export default function ProductPage({ params }: ParamsInterface) {

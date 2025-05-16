@@ -7,7 +7,7 @@ export interface SpeakersInnerPageCompInterface {
   product: {
     name: string;
     id: number;
-    slug: string; 
+    slug: string;
     description: string;
     price?: number;
     features: string;
@@ -17,8 +17,6 @@ export interface SpeakersInnerPageCompInterface {
     }[];
     others: OtherProduct[];
   };
-<<<<<<< Updated upstream
-=======
 }
 import { UseFormRegisterReturn } from "react-hook-form";
 
@@ -31,7 +29,6 @@ export interface SignUpInputsMinorDivInterface {
   register: UseFormRegisterReturn;
   ErrorText?: string;
 }
-
 
 export interface LoginData {
   email: string;
@@ -47,5 +44,4 @@ export interface SignUpData {
   name: string;
   email: string;
   password: string;
->>>>>>> Stashed changes
 }
