@@ -21,9 +21,10 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center  py-6">
-        <h1 className="font-bold text-xl text-amber-50 ">audiophile</h1>
-        <div className="space-x-10 flex  gap-8 ">
-
+        <h1 className="font-bold text-xl text-amber-50 max-md:hidden ">
+          audiophile
+        </h1>
+        <div className="space-x-10 flex  gap-8 max-md:hidden ">
           <Link className="text-amber-50" href="/HomePage">
             Home
           </Link>
@@ -56,7 +57,7 @@ const Navbar = () => {
       </div>
       {isOpen && (
         <div className="md:hidden flex flex-col items-center gap-6 bg-black pb-6 text-amber-50 text-sm tracking-widest uppercase">
-          <Link href="/" onClick={() => setIsOpen(false)}>
+          <Link href="/HomePage" onClick={() => setIsOpen(false)}>
             Home
           </Link>
           <Link href="/Headphones" onClick={() => setIsOpen(false)}>
