@@ -17,4 +17,35 @@ export interface SpeakersInnerPageCompInterface {
     }[];
     others: OtherProduct[];
   };
+<<<<<<< Updated upstream
+=======
+}
+import { UseFormRegisterReturn } from "react-hook-form";
+
+export interface SignUpInputsMinorDivInterface {
+  LabelName: string;
+  type: string;
+  htmlFor: string;
+  id: string;
+  toggleShowPassword?: () => void;
+  register: UseFormRegisterReturn;
+  ErrorText?: string;
+}
+
+
+export interface LoginData {
+  email: string;
+  password: string;
+}
+
+export interface PasswordToggleTypes {
+  showPassword: boolean;
+  toggleShowPassword: () => void;
+}
+
+export interface SignUpData {
+  name: string;
+  email: string;
+  password: string;
+>>>>>>> Stashed changes
 }

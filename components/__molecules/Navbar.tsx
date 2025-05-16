@@ -1,4 +1,5 @@
 "use client";
+<<<<<<< Updated upstream
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -15,6 +16,30 @@ const Navbar = () => {
         </h1>
 
         <div className="hidden md:flex space-x-10 items-center">
+=======
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
+import { FiShoppingCart } from "react-icons/fi";
+
+const Navbar = () => {
+  const pathname = usePathname();
+  return (
+    <div
+      className={`w-full  text-white  bg-black ${
+        pathname === "/LogIn"
+          ? "hidden"
+          : pathname === "/SignUp"
+          ? " hidden"
+          : pathname === "/"
+          ? " hidden"
+          : ""
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex justify-between items-center  py-6">
+        <h1 className="font-bold text-xl text-amber-50 ">audiophile</h1>
+        <div className="space-x-10 flex  gap-8 ">
+>>>>>>> Stashed changes
           <Link className="text-amber-50" href="/">
             Home
           </Link>
