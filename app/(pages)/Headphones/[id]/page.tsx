@@ -2,9 +2,7 @@ import SpeakersInnerPageComp from "../../../../components/__organisms/SpeakersIn
 import data from "../../../../data.json";
 
 interface ParamsInterface {
-  params: {
-    id: string;
-  };
+  params: any
 }
 
 function Page({ params }: ParamsInterface) {

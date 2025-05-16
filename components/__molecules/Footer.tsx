@@ -1,9 +1,22 @@
+"use client";
 import Link from "next/link";
 import { Facebook, Twitter, Instagram } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
   return (
-    <footer className="bg-black text-white px-6 py-12">
+    <footer
+      className={`bg-black text-white px-6 py-12 ${
+        pathname === "/SignUp"
+          ? "hidden"
+          : pathname === "LogIn"
+          ? "hidden"
+          : pathname === "/"
+          ? "hidden"
+          : ""
+      } `}
+    >
       <div className="max-w-[1110px] mx-auto flex flex-col md:flex-row justify-between gap-10">
         <div className="space-y-6 max-w-lg">
           <h2 className="text-2xl font-bold">audiophile</h2>

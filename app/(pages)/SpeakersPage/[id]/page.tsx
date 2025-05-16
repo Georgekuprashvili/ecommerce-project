@@ -5,8 +5,6 @@ interface ParamsInterface {
 }
 
 function page({ params }: ParamsInterface) {
-  console.log(params);
-
   const product = data.find((item) => item.id === Number(params.id));
   if (!product) return <div>Product not found</div>;
   return <SpeakersInnerPageComp product={product} />;

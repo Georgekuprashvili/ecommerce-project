@@ -19,8 +19,6 @@ import { SpeakersInnerPageCompInterface } from "../../../app/common/types/Type";
 import SpeakersPageProductsSmallDivs from "../../__molecules/SpeakersPageProductSmallDivs/SpeakersPageProductsSmallDivs";
 import Link from "next/link";
 function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
-  console.log(product);
-
   return (
     <div className="w-[100%] flex items-center justify-center flex-col  ">
       <div className="w-[100%] flex justify-center mt-[160px]">
