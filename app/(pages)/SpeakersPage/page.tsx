@@ -1,4 +1,3 @@
-
 import React from "react";
 import SpeakersPageComp from "../../../components/__organisms/SpeakersPageComp/SpeakersPageComp";
 
