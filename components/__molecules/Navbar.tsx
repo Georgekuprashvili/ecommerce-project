@@ -24,7 +24,7 @@ const Navbar = () => {
         <h1 className="font-bold text-xl text-amber-50 ">audiophile</h1>
         <div className="space-x-10 flex  gap-8 ">
 
-          <Link className="text-amber-50" href="/">
+          <Link className="text-amber-50" href="/HomePage">
             Home
           </Link>
           <Link className="text-amber-50" href="/Headphones">
