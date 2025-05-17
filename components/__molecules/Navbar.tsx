@@ -38,7 +38,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex items-center gap-6 md:gap-4">
+        <div className="flex items-center gap-6 md:gap-4 max-md:w-full max-md:justify-between">
           <button
             className="md:hidden text-2xl"
             onClick={() => setIsOpen(!isOpen)}
