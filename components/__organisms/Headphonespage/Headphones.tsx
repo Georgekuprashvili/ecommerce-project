@@ -19,7 +19,7 @@ export default function HeadphonesPageComp() {
   });
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="w-full bg-black py-24">
+      <div className="w-full h-[238px] bg-black py-24">
         <h1 className="text-white text-4xl font-bold uppercase text-center">
           Headphones
         </h1>

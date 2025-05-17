@@ -1,7 +1,8 @@
 import React from "react";
+import Page from "../../../components/__organisms/earphonespage/page";
 
 function EarphonesPage() {
-  return <div>page</div>;
+  return <Page />;
 }
 
 export default EarphonesPage;

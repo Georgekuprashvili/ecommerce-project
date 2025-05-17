@@ -4,27 +4,26 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { FiMenu, FiShoppingCart, FiX } from "react-icons/fi";
+import { useCartStore } from "../../app/common/Store/useCartStore";
+import CartDrawer from "../__organisms/CartDrawer";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const itemCount = useCartStore((state) => state.itemCount());
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const shouldHide =
+    pathname === "/LogIn" || pathname === "/SignUp" || pathname === "/";
+
   return (
-    <div
-      className={`w-full  text-white  bg-black ${
-        pathname === "/LogIn"
-          ? "hidden"
-          : pathname === "/SignUp"
-          ? " hidden"
-          : pathname === "/"
-          ? " hidden"
-          : ""
-      }`}
-    >
-      <div className="max-w-7xl mx-auto flex justify-between items-center  py-6">
-        <h1 className="font-bold text-xl text-amber-50 max-md:hidden ">
+    <div className={`w-full bg-black text-white ${shouldHide ? "hidden" : ""}`}>
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-6 px-4">
+        <h1 className="font-bold text-xl text-amber-50 max-md:hidden">
           audiophile
         </h1>
-        <div className="space-x-10 flex  gap-8 max-md:hidden ">
+
+        <div className="space-x-10 gap-8 hidden md:flex">
           <Link className="text-amber-50" href="/HomePage">
             Home
           </Link>
@@ -39,7 +38,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex items-center gap-6 max-md:justify-between max-md:w-[100%]">
+        <div className="flex items-center gap-6 md:gap-4">
           <button
             className="md:hidden text-2xl"
             onClick={() => setIsOpen(!isOpen)}
@@ -47,14 +46,25 @@ const Navbar = () => {
           >
             {isOpen ? <FiX /> : <FiMenu />}
           </button>
-          <h1 className="font-bold text-xl text-amber-50 md:hidden">
+
+          <h1 className="md:hidden font-bold text-xl text-amber-50">
             audiophile
           </h1>
-          <div className="text-white text-2xl cursor-pointer">
+
+          <div
+            className="relative text-white text-2xl cursor-pointer"
+            onClick={() => setIsCartOpen(!isCartOpen)}
+          >
             <FiShoppingCart />
+            {itemCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 rounded-full text-xs px-2">
+                {itemCount}
+              </span>
+            )}
           </div>
         </div>
       </div>
+
       {isOpen && (
         <div className="md:hidden flex flex-col items-center gap-6 bg-black pb-6 text-amber-50 text-sm tracking-widest uppercase">
           <Link href="/HomePage" onClick={() => setIsOpen(false)}>
@@ -71,6 +81,8 @@ const Navbar = () => {
           </Link>
         </div>
       )}
+
+      {isCartOpen && <CartDrawer />}
     </div>
   );
 };
