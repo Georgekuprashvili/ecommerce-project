@@ -29,10 +29,12 @@ const CartDrawer = () => {
                 height={64}
                 className="rounded"
               />
-              <div>
-                <p className="font-bold text-sm">${item.price}</p>
+              <div className="text-left">
+                <p className="font-bold text-sm text-black">{item.name}</p>
+                <p className="text-gray-500 text-sm">${item.price}</p>
               </div>
             </div>
+
             <div className="flex items-center gap-2 bg-[#D87D4A] px-2 py-1">
               <button
                 className="text-amber-50 font-bold"
@@ -56,15 +58,13 @@ const CartDrawer = () => {
         ))}
       </div>
 
-      {/* 🧮 TOTAL */}
       <div className="flex justify-between items-center font-bold mt-6 text-black text-lg">
         <p>TOTAL</p>
         <p>${total()}</p>
       </div>
 
-      {/* ✅ CHECKOUT BUTTON */}
       <button
-        onClick={() => (window.location.href = "/checkout")} // or use router.push
+        onClick={() => (window.location.href = "/checkout")}
         className="w-full bg-[#D87D4A] text-white py-3 mt-6 font-bold text-sm tracking-[1px]"
       >
         CHECKOUT
