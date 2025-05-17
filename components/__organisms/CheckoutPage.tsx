@@ -81,7 +81,7 @@ const CheckoutPage = () => {
               You will receive a confirmation email shortly.
             </p>
             <button
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/HomePage")}
               className="bg-[#D87D4A] text-white px-6 py-2 rounded-lg font-semibold"
             >
               BACK TO HOME
