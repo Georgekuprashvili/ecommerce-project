@@ -14,13 +14,14 @@ export default function ProductPromos() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-16 space-y-10">
       {zx9 && (
-        <div className="bg-orange-600 rounded-lg p-10 flex flex-col lg:flex-row items-center justify-between overflow-hidden">
+        <div className="bg-[#D87D4A] rounded-lg p-10 flex flex-col lg:flex-row items-center justify-between overflow-hidden">
+        
           <Image
             src={zx9Img}
             alt={zx9.name}
-            width={300}
-            height={300}
-            className="object-contain"
+            width={370}
+            height={370}
+            className="object-contain m mb-10 md:mb-0  relative    md:top-17 md:left-25 "
             priority
           />
           <div className="text-center lg:text-left text-white max-w-md">
