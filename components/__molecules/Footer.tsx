@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="space-y-6 max-w-lg flex flex-col max-[600px]:justify-center max-[600px]:items-center">
           <h2 className="text-2xl font-bold">audiophile</h2>
           <nav className="flex gap-6 text-sm tracking-widest uppercase flex-wrap min-[1000px]:hidden max-[600px]:flex-col">
-            <Link className=" text-center" href="/">
+            <Link className=" text-center" href="/HomePage">
               Home
             </Link>
             <Link className=" text-center" href="/Headphones">
@@ -48,7 +48,7 @@ export default function Footer() {
 
         <div className="flex flex-col justify-between items-end gap-8 w-full md:w-auto ">
           <nav className="flex gap-6 text-sm tracking-widest uppercase flex-wrap max-[1000px]:hidden">
-            <Link href="/">Home</Link>
+            <Link href="/HomePage">Home</Link>
             <Link href="/Headphones">Headphones</Link>
             <Link href="/SpeakersPage">Speakers</Link>
             <Link href="/EarphonesPage">Earphones</Link>
