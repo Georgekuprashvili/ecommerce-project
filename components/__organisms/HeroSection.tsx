@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Photo1 from "../../public/assets/photo1.jpg";
+import Photo1 from "../../public/assets1/photo1.jpg";
 import data from "../../data.json";
 
 const heroProduct = data.find(
@@ -24,7 +24,7 @@ export default function HeroSection() {
           </h1>
           <p className="text-white/70 mb-8">{heroProduct.description}</p>
           <Link
-            href={`/products/${heroProduct.slug}`}
+            href={`/Headphones/4`}
             className="bg-orange-500 hover:bg-orange-400 text-white py-3 px-6 uppercase tracking-wider text-sm transition"
           >
             See Product

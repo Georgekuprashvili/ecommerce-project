@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import EyeImage from "../../../public/assets/hide.png";
+// import EyeImage from "../../../public/assets/hide.png";
 import { SignUpInputsMinorDivInterface } from "../../../app/common/types/Type";
 function SignUpPasswordInput({
   htmlFor,
@@ -30,14 +30,14 @@ function SignUpPasswordInput({
           type={type}
           id={id}
         />
-        <Image
+        {/* <Image
           className="w-[16px] h-[16px] cursor-pointer"
           src={EyeImage}
           alt="Eye_image"
           width={500}
           height={500}
           onClick={toggleShowPassword}
-        />
+        /> */}
       </div>
       <p className=" text-[#696868] text-[12px] leading-[18px]  self-end">
         Passwords must be at least 8 characters

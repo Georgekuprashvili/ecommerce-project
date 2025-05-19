@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import minusImg from "../../../public/assets/-.svg";
-import plusImg from "../../../public/assets/+.svg";
+import minusImg from "../../../public/assets1/-.svg";
+import plusImg from "../../../public/assets1/+.svg";
 import { useCartStore } from "../../../app/common/Store/useCartStore";
 
 interface SpeakersPageProducsSectionInterface {

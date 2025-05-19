@@ -1,8 +1,18 @@
 export interface OtherProduct {
   slug: string;
   name: string;
+  image: ResponsiveImage;
 }
-
+type ResponsiveImage = {
+  mobile: string;
+  tablet: string;
+  desktop: string;
+};
+type Gallery = {
+  first: ResponsiveImage;
+  second: ResponsiveImage;
+  third: ResponsiveImage;
+};
 export interface SpeakersInnerPageCompInterface {
   product: {
     name: string;
@@ -11,11 +21,13 @@ export interface SpeakersInnerPageCompInterface {
     description: string;
     price?: number;
     features: string;
+    image: ResponsiveImage;
     includes: {
       quantity: number;
       item: string;
     }[];
     others: OtherProduct[];
+    gallery: Gallery;
   };
 }
 import { UseFormRegisterReturn } from "react-hook-form";

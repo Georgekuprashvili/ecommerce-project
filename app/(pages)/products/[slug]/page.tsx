@@ -1,5 +1,5 @@
-import SpeakersInnerPageComp from "../../../components/__organisms/SpeakersInnerPageComp/SpeakersInnerPageComp";
-import data from "../../../data.json";
+import SpeakersInnerPageComp from "../../../../components/__organisms/SpeakersInnerPageComp/SpeakersInnerPageComp";
+import data from "../../../../data.json";
 
 interface ParamsInterface {
   params: any;
