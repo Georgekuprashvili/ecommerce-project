@@ -20,7 +20,7 @@ export default function AboutSection() {
 
       <div className="rounded-lg overflow-hidden">
         <Image
-          src="/assets/Bitmap (17).svg"
+          src="/assets1/Bitmap (17).svg"
           alt="Audiophile person"
           width={600}
           height={400}

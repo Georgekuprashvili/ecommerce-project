@@ -1,8 +1,7 @@
 import React from "react";
-import FirstSpeakerImage from "../../../public/assets/image-removebg-preview(38).svg";
-import SecondSpeakersImage from "../../../public/assets/image-removebg-preview(49).svg";
-import HeadphonesImage from "../../../public/assets/headphones.svg";
-import EarphoneImg from "../../../public/assets/earphones.svg";
+import FirstSpeakerImage from "../../../public/assets1/image-removebg-preview(38).svg";
+import HeadphonesImage from "../../../public/assets1/headphones.svg";
+import EarphoneImg from "../../../public/assets1/earphones.svg";
 import AboutSection from "../AboutSection";
 import data from "../../../data.json";
 import SpeakersPageProducsSection from "../../__molecules/SpeakersPageProductsSection/SpeakersPageProducsSection";
@@ -22,11 +21,7 @@ function SpeakersPageComp() {
           classname={`max-w-[1180px] w-[100%] mt-[160px] flex items-center justify-between px-[20px] gap-[20px] max-[800px]:flex-col max-[800px]:mt-[120px] max-[800px]:gap-[55px] ${
             item.name === "ZX9 Speaker" ? " flex-row-reverse" : ""
           }  `}
-          image={
-            item.name === "ZX9 Speaker"
-              ? FirstSpeakerImage
-              : SecondSpeakersImage
-          }
+          image={item.image.desktop}
           p={item.description}
         />
       ))}

@@ -1,8 +1,8 @@
 import data from "../../../data.json";
 
-import HeadphonesImage from "../../../public/assets/headphones.svg";
-import FirstSpeakerImage from "../../../public/assets/image-removebg-preview(38).svg";
-import EarphoneImg from "../../../public/assets/earphones.svg";
+import HeadphonesImage from "../../../public/assets1/headphones.svg";
+import FirstSpeakerImage from "../../../public/assets1/image-removebg-preview(38).svg";
+import EarphoneImg from "../../../public/assets1/earphones.svg";
 import SpeakersPageProductsSmallDivs from "../../__molecules/SpeakersPageProductSmallDivs/SpeakersPageProductsSmallDivs";
 import AboutSection from "../AboutSection";
 import ProductPreview from "../../__molecules/ProductPreview";
@@ -28,6 +28,7 @@ export default function HeadphonesPageComp() {
       <div className="max-w-6xl w-full px-4">
         {sorted.map((item, idx) => (
           <ProductPreview
+            image={item.image.desktop}
             key={item.id}
             product={item}
             reverse={idx % 2 !== 0}

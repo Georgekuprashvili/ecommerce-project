@@ -2,14 +2,14 @@
 
 import React from "react";
 import AboutSection from "../AboutSection";
-import HeadphonesImage from "../../../public/assets/headphones.svg";
-import FirstSpeakerImage from "../../../public/assets/image-removebg-preview(38).svg";
-import EarphoneImg from "../../../public/assets/earphones.svg";
+import HeadphonesImage from "../../../public/assets1/headphones.svg";
+import FirstSpeakerImage from "../../../public/assets1/image-removebg-preview(38).svg";
+import EarphoneImg from "../../../public/assets1/earphones.svg";
 import SpeakersPageProductsSmallDivs from "../../__molecules/SpeakersPageProductSmallDivs/SpeakersPageProductsSmallDivs";
 
 import ProductPreview from "./ProductPreviewEarphones";
 
-const YX1Image = "/assets/earphones.svg";
+const YX1Image = "/assets1/earphones.svg";
 
 export default function Page() {
   const product = {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import RightArrowImage from "../../../public/assets/rightarrow.svg";
+// import RightArrowImage from "../../../public/assets/rightarrow.svg";
 import Link from "next/link";
 
 interface SpeakersPageProductsSmallDivsInterface {
@@ -39,13 +39,13 @@ function SpeakersPageProductsSmallDivs({
               <p className="text-[13px] font-bold text-[#000000] hover:text-[#D87D4A]">
                 Shop
               </p>
-              <Image
+              {/* <Image
                 src={RightArrowImage}
                 alt="Right_arrow"
                 width={500}
                 height={500}
                 className="w-[5px] h-[10px]"
-              />
+              /> */}
             </Link>
           </div>
         </div>

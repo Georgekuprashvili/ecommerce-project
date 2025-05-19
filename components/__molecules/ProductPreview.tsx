@@ -1,25 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import XX99MarkIIImg from "../../public/assets/Group 3 (2).png";
-import XX99MarkIImg from "../../public/assets/Group 3 (3).png";
-import XX59Img from "../../public/assets/Group 3 (4).png";
-
-const IMAGE_MAP: Record<string, any> = {
-  "XX99 Mark II Headphones": XX99MarkIIImg,
-  "XX99 Mark I Headphones": XX99MarkIImg,
-  "XX59 Headphones": XX59Img,
-};
-
 export default function ProductPreview({
   product,
   reverse,
+  image,
 }: {
   product: any;
   reverse?: boolean;
+  image: string;
 }) {
-  const image = IMAGE_MAP[product.name];
-
   return (
     <div
       className={`flex flex-col md:flex-row ${
@@ -44,7 +34,7 @@ export default function ProductPreview({
         )}
         <h2 className="text-3xl font-bold uppercase mb-6">{product.name}</h2>
         <p className="text-gray-600 mb-6">{product.description}</p>
-        <Link href={`/products/${product.slug}`}>
+        <Link href={`/Headphones/${product.id}`}>
           <button className="bg-orange-500 text-white px-6 py-3 uppercase tracking-wider text-sm hover:bg-orange-400 transition">
             See Product
           </button>

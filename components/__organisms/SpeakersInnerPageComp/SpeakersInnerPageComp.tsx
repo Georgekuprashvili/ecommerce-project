@@ -1,22 +1,15 @@
 "use client";
 
 import React from "react";
-import FirstSpeakerImage from "../../../public/assets/image-removebg-preview(38).svg";
-import SecondSpeakersImage from "../../../public/assets/image-removebg-preview(49).svg";
-import HeadphonesImage from "../../../public/assets/headphones.svg";
-import EarphoneImg from "../../../public/assets/earphones.svg";
+import FirstSpeakerImage from "../../../public/assets1/image-removebg-preview(38).svg";
+import HeadphonesImage from "../../../public/assets1/headphones.svg";
+import EarphoneImg from "../../../public/assets1/earphones.svg";
 import AboutSection from "../AboutSection";
-import ZX9SPEAKERFirst from "../../../public/assets/ZX9 SPEAKERFirst.svg";
-import ZX7SPEAKERFirst from "../../../public/assets/ZX7SPEAKERFirst.svg";
-import zx9SecondIMG from "../../../public/assets/zx9Second.svg";
-import zx7Second from "../../../public/assets/zx7second.svg";
-import zx9third from "../../../public/assets/zx9third.svg";
-import zx7third from "../../../public/assets/zx7third.svg";
 import Image from "next/image";
-import whiteHeadsetImage from "../../../public/assets/whiteheadset.svg";
 import SpeakersInnerPageProductsSection from "../../__molecules/SpeakersInnerPageProductsSection.tsx/SpeakersInnerPageProductsSection";
 import { SpeakersInnerPageCompInterface } from "../../../app/common/types/Type";
 import SpeakersPageProductsSmallDivs from "../../__molecules/SpeakersPageProductSmallDivs/SpeakersPageProductsSmallDivs";
+
 import Link from "next/link";
 function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
   return (
@@ -25,11 +18,7 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
         <SpeakersInnerPageProductsSection
           h1={product?.name}
           classname={`max-w-[1180px] w-[100%] mt-[160px] flex items-center justify-between px-[20px] gap-[20px] max-[800px]:flex-col max-[800px]:mt-[120px] max-[800px]:gap-[55px]  `}
-          image={
-            product?.name === "ZX9 Speaker"
-              ? FirstSpeakerImage
-              : SecondSpeakersImage
-          }
+          image={product.image.desktop}
           p={product?.description}
           price={product.price}
         />
@@ -64,25 +53,23 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
       <div className="max-w-[1180px] w-[100%] px-[20px] flex mt-[160px]  gap-[32px] items-center max-[800px]:flex-col max-[800px]:gap-[20px]">
         <div className="flex flex-col gap-[32px] max-[800px]:w-[100%] max-[800px]:gap-[20px]">
           <Image
-            src={
-              product.name === "ZX9 Speaker" ? ZX9SPEAKERFirst : ZX7SPEAKERFirst
-            }
-            alt="speakers"
+            src={product.gallery.first.desktop}
+            alt={product.name}
             width={500}
             height={500}
             className="w-[100%] min-w-[277px] max-[800px]:w-[100%] "
           />
           <Image
-            src={product.name === "ZX9 Speaker" ? zx9SecondIMG : zx7Second}
-            alt="speakers"
+            src={product.gallery.second.desktop}
+            alt={product.name}
             width={500}
             height={500}
             className="w-[100%] min-w-[277px] max-[800px]:w-[100%] "
           />
         </div>
         <Image
-          src={product.name === "ZX9 Speaker" ? zx9third : zx7third}
-          alt="speakers"
+          src={product.gallery.third.desktop}
+          alt={product.name}
           width={500}
           height={500}
           className="w-[100%] min-w-[395px] max-w-[635px] h-[100%] max-[800px]:max-w-[100%] max-[800px]:min-w-auto "
@@ -100,15 +87,7 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
             >
               <div className="bg-[#F1F1F1] max-w-[350px]  w-[100%] py-[60px] flex itmes-center justify-center max-[800px]:py-[15px] max-[600px]:max-w-[100%] ">
                 <Image
-                  src={
-                    item.name === "ZX9 Speaker"
-                      ? FirstSpeakerImage
-                      : item.name === "XX99 Mark I"
-                      ? HeadphonesImage
-                      : item.name === "ZX7 Speaker"
-                      ? SecondSpeakersImage
-                      : whiteHeadsetImage
-                  }
+                  src={item.image.desktop}
                   alt={item.name}
                   width={500}
                   height={500}
@@ -119,11 +98,7 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
                 {item.name}
               </h1>
               <Link
-                href={`${
-                  item.name === "ZX7 Speaker"
-                    ? "/SpeakersPage/5"
-                    : "/SpeakersPage/6"
-                }`}
+                href={`/products/${item.slug}`}
                 className="bg-[#D87D4A] text-[#fff] px-[29px] py-[15px] cursor-pointer font-bold text-[13px] tracking-[1px] hover:bg-[#FBAF85]"
               >
                 See Product
