@@ -82,7 +82,7 @@ const CheckoutPage = () => {
             </p>
             <button
               onClick={() => router.push("/HomePage")}
-              className="bg-[#D87D4A] text-white px-6 py-2 rounded-lg font-semibold"
+              className="bg-[#D87D4A] text-white px-6 py-2 rounded-lg font-semibold cursor-pointer"
             >
               BACK TO HOME
             </button>
@@ -293,7 +293,7 @@ const CheckoutPage = () => {
 
           <button
             onClick={handleSubmit}
-            className="w-full mt-6 bg-[#D87D4A] text-white py-3 font-bold tracking-wider"
+            className="w-full mt-6 bg-[#D87D4A] text-white py-3 font-bold tracking-wider cursor-pointer"
           >
             CONTINUE & PAY
           </button>

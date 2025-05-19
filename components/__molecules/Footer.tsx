@@ -7,20 +7,35 @@ export default function Footer() {
   const pathname = usePathname();
   return (
     <footer
-      className={`bg-black text-white px-6 py-12 ${
-        pathname === "/SignUp"
-          ? "hidden"
-          : pathname === "LogIn"
-          ? "hidden"
-          : pathname === "/"
-          ? "hidden"
-          : ""
-      } `}
+      className={`bg-[#000000] w-[100%] flex items-center justify-center pt-[75px] pb-[45px] text-white  
+        ${
+          pathname === "/SignUp"
+            ? "hidden"
+            : pathname === "LogIn"
+            ? "hidden"
+            : pathname === "/"
+            ? "hidden"
+            : ""
+        } `}
     >
-      <div className="max-w-[1110px] mx-auto flex flex-col md:flex-row justify-between gap-10">
-        <div className="space-y-6 max-w-lg">
+      <div className="max-w-[1180px] w-[100%] px-[20px]  flex flex-col md:flex-row justify-between gap-[20px] ">
+        <div className="space-y-6 max-w-lg flex flex-col max-[600px]:justify-center max-[600px]:items-center">
           <h2 className="text-2xl font-bold">audiophile</h2>
-          <p className="text-gray-400 text-sm leading-relaxed">
+          <nav className="flex gap-6 text-sm tracking-widest uppercase flex-wrap min-[1000px]:hidden max-[600px]:flex-col">
+            <Link className=" text-center" href="/">
+              Home
+            </Link>
+            <Link className=" text-center" href="/Headphones">
+              Headphones
+            </Link>
+            <Link className=" text-center" href="/SpeakersPage">
+              Speakers
+            </Link>
+            <Link className=" text-center" href="/EarphonesPage">
+              Earphones
+            </Link>
+          </nav>
+          <p className="text-gray-400 text-sm leading-relaxed max-[600px]:text-center">
             Audiophile is an all in one stop to fulfill your audio needs. We're
             a small team of music lovers and sound specialists who are devoted
             to helping you get the most out of personal audio. Come and visit
@@ -32,14 +47,14 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col justify-between items-end gap-8 w-full md:w-auto ">
-          <nav className="flex gap-6 text-sm tracking-widest uppercase flex-wrap ">
+          <nav className="flex gap-6 text-sm tracking-widest uppercase flex-wrap max-[1000px]:hidden">
             <Link href="/">Home</Link>
             <Link href="/Headphones">Headphones</Link>
             <Link href="/SpeakersPage">Speakers</Link>
             <Link href="/EarphonesPage">Earphones</Link>
           </nav>
 
-          <div className="flex gap-4">
+          <div className="flex w-[100%] gap-4  max-[600px]:items-center max-[600px]:justify-center ">
             <Link href="#" className="hover:text-orange-500 transition">
               <Facebook className="w-5 h-5" />
             </Link>

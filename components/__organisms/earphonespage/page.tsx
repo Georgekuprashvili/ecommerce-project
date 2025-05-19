@@ -26,10 +26,12 @@ export default function Page() {
         <h1 className="text-[32px] font-[700] text-white">EARPHONES</h1>
       </div>
 
-      <div className=" md:px-90">
-        <ProductPreview product={product} image={YX1Image} reverse={false} />
-
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 max-w-6xl w-full mt-60 px-4 max-md:gap-[70px] ">
+      <div>
+        <div className="flex justify-center items-center w-[100%]"
+        >
+          <ProductPreview product={product} image={YX1Image} reverse={false} />
+        </div>
+        <div className="mt-[200px] max-w-[1180px] px-[20px] mx-auto flex  gap-[20px] items-center justify-between max-[800px]:gap-[10px] max-[600px]:flex-col max-[600px]:gap-[100px]">
           <SpeakersPageProductsSmallDivs
             href="/Headphones"
             alt="HEADPHONES"
@@ -50,9 +52,9 @@ export default function Page() {
           />
         </div>
 
-        <section className="mt-[100px] mb-[100px] bg-white">
+        <div className="w-[100%] flex justify-center mt-[160px] mb-[160px]">
           <AboutSection />
-        </section>
+        </div>
       </div>
     </div>
   );

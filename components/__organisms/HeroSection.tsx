@@ -11,8 +11,8 @@ export default function HeroSection() {
   if (!heroProduct) return null;
 
   return (
-    <section className="w-full bg-[#141414] text-white px-6 py-20">
-      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+    <section className="w-full bg-[#141414] text-white flex  items-center justify-center">
+      <div className="max-w-[1180px] w-[100%] flex flex-col-reverse lg:flex-row items-center gap-12 px-[20px] py-[100px]">
         <div className="flex-1 text-center lg:text-left">
           {heroProduct.new && (
             <p className="text-sm tracking-widest text-orange-400 uppercase mb-4">
@@ -35,9 +35,9 @@ export default function HeroSection() {
           <Image
             src={Photo1}
             alt="Hero Product"
-            width={400}
-            height={400}
-            className="object-contain"
+            
+            
+          
             priority
           />
         </div>

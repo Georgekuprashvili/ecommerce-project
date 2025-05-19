@@ -37,7 +37,7 @@ const CartDrawer = () => {
 
             <div className="flex items-center gap-2 bg-[#D87D4A] px-2 py-1">
               <button
-                className="text-amber-50 font-bold"
+                className="text-amber-50 font-bold cursor-pointer"
                 onClick={() =>
                   updateQuantity(item.id, Math.max(1, item.quantity - 1))
                 }
@@ -48,7 +48,7 @@ const CartDrawer = () => {
                 {item.quantity}
               </span>
               <button
-                className="text-amber-50 font-bold"
+                className="text-amber-50 font-bold cursor-pointer"
                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
               >
                 +
@@ -65,7 +65,7 @@ const CartDrawer = () => {
 
       <button
         onClick={() => (window.location.href = "/checkout")}
-        className="w-full bg-[#D87D4A] text-white py-3 mt-6 font-bold text-sm tracking-[1px]"
+        className="w-full bg-[#D87D4A] text-white py-3 mt-6 font-bold text-sm tracking-[1px] cursor-pointer"
       >
         CHECKOUT
       </button>

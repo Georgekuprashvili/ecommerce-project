@@ -11,31 +11,31 @@ export default function HomePage() {
     <main>
       <HeroSection />
 
-      <section className="w-full py-20 px-6">
-        <div className="mt-[100px] max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 max-md:gap-[70px]">
-          <SpeakersPageProductsSmallDivs
-            href="/Headphones"
-            alt="HEADPHONES"
-            image={HeadphonesImage}
-            h3="HEADPHONES"
-          />
-          <SpeakersPageProductsSmallDivs
-            href="/SpeakersPage"
-            image={FirstSpeakerImage}
-            h3="SPEAKERS"
-            alt="SPEAKERS"
-          />
-          <SpeakersPageProductsSmallDivs
-            href="/EarphonesPage"
-            image={EarphoneImg}
-            h3="EARPHONES"
-            alt="EARPHONES"
-          />
-        </div>
-      </section>
+      <div className="mt-[200px] max-w-[1180px] px-[20px] mx-auto flex  gap-[20px] items-center justify-between max-[800px]:gap-[10px] max-[600px]:flex-col max-[600px]:gap-[100px]">
+        <SpeakersPageProductsSmallDivs
+          href="/Headphones"
+          alt="HEADPHONES"
+          image={HeadphonesImage}
+          h3="HEADPHONES"
+        />
+        <SpeakersPageProductsSmallDivs
+          href="/SpeakersPage"
+          image={FirstSpeakerImage}
+          h3="SPEAKERS"
+          alt="SPEAKERS"
+        />
+        <SpeakersPageProductsSmallDivs
+          href="/EarphonesPage"
+          image={EarphoneImg}
+          h3="EARPHONES"
+          alt="EARPHONES"
+        />
+      </div>
 
       <ProductPromos />
-      <AboutSection />
+      <div className="w-[100%] flex justify-center mt-[160px] mb-[160px] ">
+        <AboutSection />
+      </div>
     </main>
   );
 }

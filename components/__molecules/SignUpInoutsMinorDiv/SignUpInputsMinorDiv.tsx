@@ -21,7 +21,7 @@ function SignUpInputsMinorDiv({
         <p className=" text-[#F44336] font-bold">{ErrorText}</p>
       </div>
       <input
-        className=" outline-none border-solid border-[#98908B] border-[1px] rounded-[8px] p-[12px]"
+        className=" outline-none border-solid border-[#98908B] border-[1px] rounded-[8px] p-[12px] "
         type={type}
         id={id}
         {...register}

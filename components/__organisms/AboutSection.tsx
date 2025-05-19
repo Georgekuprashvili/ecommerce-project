@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section className="max-w-[1110] mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white">
+    <section className="max-w-[1180] w-[100%] px-[20px]   grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white">
       <div className="text-center md:text-left">
         <h2 className="text-3xl md:text-4xl font-bold uppercase mb-6">
           Bringing you the <br /> <span className="text-orange-500">best</span>{" "}
