@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FiMenu, FiShoppingCart, FiX } from "react-icons/fi";
 import { useCartStore } from "../../app/common/Store/useCartStore";
 import CartDrawer from "../__organisms/CartDrawer";
@@ -12,13 +12,34 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const itemCount = useCartStore((state) => state.itemCount());
   const [isCartOpen, setIsCartOpen] = useState(false);
-
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const shouldHide =
     pathname === "/LogIn" || pathname === "/SignUp" || pathname === "/";
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
-    <div className={`w-full bg-black text-white ${shouldHide ? "hidden" : ""}`}>
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-6 px-4">
+    <div
+      className={`w-full bg-black text-white flex items-center justify-center  ${
+        shouldHide ? "hidden" : ""
+      }`}
+    >
+      <div className="max-w-[1180px] w-[100%] flex justify-between items-center px-[20px] py-[35px] ">
         <h1 className="font-bold text-xl text-amber-50 max-md:hidden">
           audiophile
         </h1>
@@ -40,7 +61,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-6 md:gap-4 max-md:w-full max-md:justify-between">
           <button
-            className="md:hidden text-2xl"
+            className="md:hidden text-2xl cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -65,22 +86,45 @@ const Navbar = () => {
         </div>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden flex flex-col items-center gap-6 bg-black pb-6 text-amber-50 text-sm tracking-widest uppercase">
-          <Link href="/HomePage" onClick={() => setIsOpen(false)}>
-            Home
-          </Link>
-          <Link href="/Headphones" onClick={() => setIsOpen(false)}>
-            Headphones
-          </Link>
-          <Link href="/SpeakersPage" onClick={() => setIsOpen(false)}>
-            Speakers
-          </Link>
-          <Link href="/EarphonesPage" onClick={() => setIsOpen(false)}>
-            Earphones
-          </Link>
-        </div>
-      )}
+      <div
+        ref={dropdownRef}
+        className={`absolute w-[200px] left-[20px] top-[96px] md:hidden flex flex-col items-center justify-center  gap-6 bg-[#F1F1F1] text-amber-50 text-sm tracking-widest uppercase overflow-hidden transition-all duration-800 ease-in-out z-2 ${
+          isOpen ? "h-[200px] " : "h-[0px]"
+        }`}
+      >
+        {isOpen && (
+          <div className=" md:hidden flex  flex-col items-center gap-6   text-black text-sm tracking-widest uppercase">
+            <Link
+              className=" border-b-solid border-b-[1px] cursor-pointer"
+              href="/HomePage"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              className=" border-b-solid border-b-[1px] cursor-pointer"
+              href="/Headphones"
+              onClick={() => setIsOpen(false)}
+            >
+              Headphones
+            </Link>
+            <Link
+              className=" border-b-solid border-b-[1px] cursor-pointer"
+              href="/SpeakersPage"
+              onClick={() => setIsOpen(false)}
+            >
+              Speakers
+            </Link>
+            <Link
+              className=" border-b-solid border-b-[1px] cursor-pointer"
+              href="/EarphonesPage"
+              onClick={() => setIsOpen(false)}
+            >
+              Earphones
+            </Link>
+          </div>
+        )}
+      </div>
 
       {isCartOpen && <CartDrawer />}
     </div>

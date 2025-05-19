@@ -50,31 +50,35 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
           </div>
         </div>
       </div>
-      <div className="max-w-[1180px] w-[100%] px-[20px] flex mt-[160px]  gap-[32px] items-center max-[800px]:flex-col max-[800px]:gap-[20px]">
-        <div className="flex flex-col gap-[32px] max-[800px]:w-[100%] max-[800px]:gap-[20px]">
+      <div className="max-w-[1180px] w-full px-[20px] flex mt-[160px] gap-[32px] items-stretch justify-between max-[800px]:flex-col max-[800px]:gap-[20px]">
+        <div className="flex flex-col gap-[32px] w-full max-w-[455px] max-[800px]:w-full max-[800px]:max-w-full max-[800px]:gap-[20px]">
           <Image
             src={product.gallery.first.desktop}
             alt={product.name}
             width={500}
             height={500}
-            className="w-[100%] min-w-[277px] max-[800px]:w-[100%] "
+            className="w-full h-auto"
           />
           <Image
             src={product.gallery.second.desktop}
             alt={product.name}
             width={500}
             height={500}
-            className="w-[100%] min-w-[277px] max-[800px]:w-[100%] "
+            className="w-full h-auto"
           />
         </div>
-        <Image
-          src={product.gallery.third.desktop}
-          alt={product.name}
-          width={500}
-          height={500}
-          className="w-[100%] min-w-[395px] max-w-[635px] h-[100%] max-[800px]:max-w-[100%] max-[800px]:min-w-auto "
-        />
+
+        <div className="w-full max-w-[635px] h-auto max-[800px]:max-w-full">
+          <Image
+            src={product.gallery.third.desktop}
+            alt={product.name}
+            width={500}
+            height={1064}
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
+
       <div className="flex max-w-[1180px] px-[20px] w-[100%] items-center justify-center flex-col mt-[160px] ">
         <h1 className="font-bold text-[32px] leading-[36px] tracking-[1.14px] max-[800px]:text-[24px ">
           you may also like
@@ -91,7 +95,7 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
                   alt={item.name}
                   width={500}
                   height={500}
-                  className="max-w-[140px] w-[100%] h-[180px] max-[800px]:max-w-[60px] max-[800px]:h-[87px]"
+                  className="max-w-[250px] w-[100%] h-[220px] max-[800px]:max-w-[110px] max-[800px]:h-[120px]"
                 />
               </div>
               <h1 className="text-[24px] text-[#000000] font-bold tracking-[1.7px]">
@@ -127,7 +131,7 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
           alt="EARPHONES"
         />
       </div>
-      <div className="mt-[160px]">
+      <div className="mt-[160px] mb-[160px]">
         <AboutSection />
       </div>
     </div>

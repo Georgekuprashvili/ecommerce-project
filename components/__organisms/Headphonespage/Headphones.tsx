@@ -25,7 +25,7 @@ export default function HeadphonesPageComp() {
         </h1>
       </div>
 
-      <div className="max-w-6xl w-full px-4">
+      <div className="max-w-[1180px] w-full px-[20px]">
         {sorted.map((item, idx) => (
           <ProductPreview
             image={item.image.desktop}
@@ -36,7 +36,7 @@ export default function HeadphonesPageComp() {
         ))}
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between items-center gap-8 max-w-6xl w-full mt-32 px-4 max-md:gap-[70px] ">
+      <div className="mt-[200px] max-w-[1180px] px-[20px] w-[100%] flex  gap-[20px] items-center justify-between max-[800px]:gap-[10px] max-[600px]:flex-col max-[600px]:gap-[100px]">
         <SpeakersPageProductsSmallDivs
           href="/Headphones"
           alt="HEADPHONES"
@@ -57,7 +57,7 @@ export default function HeadphonesPageComp() {
         />
       </div>
 
-      <div className="mt-32 w-full">
+      <div className="w-[100%] flex justify-center mt-[160px] mb-[160px]">
         <AboutSection />
       </div>
     </div>

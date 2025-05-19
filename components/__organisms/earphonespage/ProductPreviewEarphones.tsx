@@ -22,7 +22,7 @@ export default function ProductPreview({
     <section
       className={`mt-20 flex flex-col md:flex-row ${
         reverse ? "md:flex-row-reverse" : ""
-      } justify-between items-center bg-white gap-10`}
+      } justify-between items-center bg-white gap-10 max-w-[1180px] w-[100%] mx-[20px]`}
     >
       <div className="bg-gray-100 w-full md:w-1/2 p-10 flex justify-center">
         <Image
@@ -40,10 +40,10 @@ export default function ProductPreview({
             New Product
           </p>
         )}
-        <h2 className="text-[32px] md:text-[48px] leading-[48px] font-bold uppercase mb-6 text-black">
+        <h2 className="mt-[16px] text-[#000000] text-[40px] leading-[44px] tracking-[1.43px] font-bold  max-[600px]:text-[28px]">
           {product.name}
         </h2>
-        <p className="text-gray-600 mb-6 text-[16px] md:text-[18px] max-w-[480px] mx-auto md:mx-0">
+        <p className="text-gray-600 mb-6 text-[16px] md:text-[18px] max-w-[480px] mx-auto md:mx-0 mt-[32px]">
           {product.description}
         </p>
         <Link href={`/products/${product.slug}`}>

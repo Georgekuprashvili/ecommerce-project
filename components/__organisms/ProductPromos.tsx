@@ -12,15 +12,15 @@ export default function ProductPromos() {
   const yx1 = data.find((item) => item.slug === "yx1-earphones");
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16 space-y-10">
+    <section className=" w-[100%]  px-[20px] flex items-center justify-center flex-col space-y-10 mt-[160px]">
       {zx9 && (
-        <div className="bg-[#D87D4A] rounded-lg p-10 flex flex-col lg:flex-row items-center justify-between overflow-hidden">
+        <div className="bg-[#D87D4A] max-w-[1180px] w-[100%] rounded-lg p-10 flex flex-col lg:flex-row items-center justify-between overflow-hidden">
           <Image
             src={zx9Img}
             alt={zx9.name}
             width={370}
             height={370}
-            className="object-contain m mb-10 md:mb-0  relative    md:top-17 md:left-25 "
+            className="object-contain  mb-10 md:mb-0  relative    "
             priority
           />
           <div className="text-center lg:text-left text-white max-w-md">
@@ -38,7 +38,7 @@ export default function ProductPromos() {
 
       {zx7 && (
         <div
-          className="rounded-lg bg-cover bg-center bg-no-repeat w-full px-10 py-20 flex flex-col gap-5"
+          className=" max-w-[1180px]  rounded-lg bg-cover bg-center bg-no-repeat w-full px-10 py-20 flex flex-col gap-5"
           style={{
             backgroundImage: `url(${zx7Img.src})`,
           }}
@@ -56,7 +56,7 @@ export default function ProductPromos() {
       )}
 
       {yx1 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className=" max-w-[1180px] w-[100%] grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="rounded-lg overflow-hidden">
             <Image
               src={yx1Img}
