@@ -3,10 +3,15 @@ const connectToDb = require("./db/connectToDb");
 const productModel = require("./models/product.model");
 const { isValidObjectId } = require("mongoose");
 const allproductsModel = require("./models/allproducts.model");
+const cors = require("cors");
+const multer = require("multer");
+const { upload, deleteFromCloudinary } = require("./config");
 const app = express();
-
+app.use(cors());
 connectToDb();
 app.use(express.json());
+
+app.use(express.static("uploads"));
 
 app.get("/api/products", async (req, res) => {
   const products = await productModel.find();
@@ -84,32 +89,68 @@ app.get("/api/admin", async (req, res) => {
   res.json(products);
 });
 
-app.post("/api/admin", async (req, res) => {
-  const { name, slug, price, description, isNew, features, includes, others } =
-    req.body;
-  if (
-    !name ||
-    !price ||
-    !description ||
-    !slug ||
-    !isNew ||
-    !features ||
-    !includes
-  ) {
-    return res.status(400).json({ error: "fill required fields " });
+app.post(
+  "/api/admin",
+  upload.fields([
+    { name: "image", maxCount: 1 },
+    { name: "image1", maxCount: 1 },
+    { name: "image2", maxCount: 1 },
+    { name: "image3", maxCount: 1 },
+  ]),
+  async (req, res) => {
+    const {
+      name,
+      slug,
+      price,
+      description,
+      isNew,
+      features,
+      includes,
+      others,
+      category,
+    } = req.body;
+    if (
+      !name ||
+      !slug ||
+      !price ||
+      !description ||
+      !isNew ||
+      !features ||
+      !includes ||
+      !others ||
+      !category ||
+      !req.files?.image ||
+      !req.files?.image1 ||
+      !req.files?.image2 ||
+      !req.files?.image3
+    ) {
+      return res.status(400).json({ error: "fill required fields " });
+    }
+    const alreaadyesists = await allproductsModel.findOne({ name });
+    if (alreaadyesists) {
+      return res.status(400).json({ error: "such product already exists" });
+    }
+    const gallery = [
+      req.files.image1?.[0]?.path,
+      req.files.image2?.[0]?.path,
+      req.files.image3?.[0]?.path,
+    ];
+    const createdProduct = await allproductsModel.create({
+      name,
+      slug,
+      price,
+      description,
+      isNew,
+      features,
+      includes,
+      others,
+      category,
+      image: req.files.image[0].path,
+      gallery,
+    });
+    res.status(201).json({ message: "product created successfully" });
   }
-  const createdProduct = await allproductsModel.create({
-    name,
-    slug,
-    price,
-    description,
-    isNew,
-    features,
-    includes,
-    others,
-  });
-  res.status(201).json({ message: "product created successfully" });
-});
+);
 
 app.get("/api/admin/:id", async (req, res) => {
   const { id } = req.params;
@@ -141,8 +182,17 @@ app.put("/api/admin/:id", async (req, res) => {
   if (!isValidObjectId(id)) {
     return res.status(400).json({ error: "wrong id is provided" });
   }
-  const { name, slug, price, description, isNew, features, includes, others } =
-    req.body;
+  const {
+    name,
+    slug,
+    price,
+    description,
+    isNew,
+    features,
+    includes,
+    others,
+    category,
+  } = req.body;
   const updatedProduct = await allproductsModel.findByIdAndUpdate(
     id,
     {
@@ -154,6 +204,7 @@ app.put("/api/admin/:id", async (req, res) => {
       features,
       includes,
       others,
+      category,
       $inc: { __v: 1 },
     },
     { new: true }

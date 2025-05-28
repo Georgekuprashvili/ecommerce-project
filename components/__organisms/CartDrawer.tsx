@@ -30,13 +30,13 @@ const CartDrawer = () => {
             {items.map((item) => (
               <div key={item.id} className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={64}
-                    height={64}
-                    className="rounded"
-                  />
+                    {/* <Image
+                      src={item.image}
+                      alt={item.name}
+                      width={64}
+                      height={64}
+                      className="rounded"
+                    /> */}
                   <div className="text-left">
                     <p className="font-bold text-sm text-black">{item.name}</p>
                     <p className="text-gray-500 text-sm">${item.price}</p>

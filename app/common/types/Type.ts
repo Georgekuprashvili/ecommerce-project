@@ -1,18 +1,9 @@
 export interface OtherProduct {
   slug: string;
   name: string;
-  image: ResponsiveImage;
+  image: string;
 }
-type ResponsiveImage = {
-  mobile: string;
-  tablet: string;
-  desktop: string;
-};
-type Gallery = {
-  first: ResponsiveImage;
-  second: ResponsiveImage;
-  third: ResponsiveImage;
-};
+
 export interface SpeakersInnerPageCompInterface {
   product: {
     name: string;
@@ -21,13 +12,13 @@ export interface SpeakersInnerPageCompInterface {
     description: string;
     price?: number;
     features: string;
-    image: ResponsiveImage;
+    image: string;
     includes: {
       quantity: number;
       item: string;
     }[];
     others: OtherProduct[];
-    gallery: Gallery;
+    gallery: string[];
   };
 }
 import { UseFormRegisterReturn } from "react-hook-form";
@@ -56,4 +47,42 @@ export interface SignUpData {
   name: string;
   email: string;
   password: string;
+}
+
+export interface fetchdData {
+  image: string;
+  _id: number;
+  id: number;
+  link: string;
+  slug: string;
+  name: string;
+
+  category: string;
+  categoryImage: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
+  new: boolean;
+  price: number;
+  description: string;
+  features: string;
+  includes: {
+    quantity: number;
+    item: string;
+  }[];
+  gallery: string[];
+  others: {
+    slug: string;
+    name: string;
+    image: string;
+  }[];
+}
+
+export interface SpeakersPageProducsSectionInterface {
+  image: string;
+  classname: string;
+  h1: React.ReactNode;
+  p: React.ReactNode;
+  link: string;
 }

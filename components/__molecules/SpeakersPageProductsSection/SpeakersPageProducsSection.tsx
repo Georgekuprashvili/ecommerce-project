@@ -2,14 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Button from "../../__atoms/Button/Button";
+import { SpeakersPageProducsSectionInterface } from "../../../app/common/types/Type";
 
-interface SpeakersPageProducsSectionInterface {
-  image: string;
-  classname: string;
-  h1: React.ReactNode;
-  p: React.ReactNode;
-  link: string;
-}
 function SpeakersPageProducsSection({
   image,
   classname,
@@ -21,7 +15,7 @@ function SpeakersPageProducsSection({
     <div className={classname}>
       <div className="flex items-center justify-center bg-[#F1F1F1] max-w-[540px] w-[100%] py-[100px] max-[800px]:max-w-[100%] max-[600px]:py-[40px]">
         <Image
-          src={image}
+          src={image || ""}
           alt="Speaker"
           width={500}
           height={500}
