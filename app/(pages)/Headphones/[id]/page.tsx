@@ -1,12 +1,34 @@
+"use client";
+import { use, useEffect, useState } from "react";
 import SpeakersInnerPageComp from "../../../../components/__organisms/SpeakersInnerPageComp/SpeakersInnerPageComp";
-import data from "../../../../data.json";
+import { fetchdData } from "../../../common/types/Type";
+import { fetchData } from "../../../common/funcs/fetch";
 
 interface ParamsInterface {
-  params: any
+  params: Promise<{ id: number }>;
 }
 
 function Page({ params }: ParamsInterface) {
-  const product = data.find((item) => item.id === Number(params.id));
+  const { id } = use(params);
+  const [newdata, setData] = useState<fetchdData[]>([]);
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const data = await fetchData("http://localhost:4000/api/admin");
+        setData(data);
+      } catch (e) {
+        console.error("Error loading data", e);
+      }
+    }
+
+    loadData();
+  }, []);
+
+  const product = newdata.find((item) => item._id === id);
+
+  if (!newdata.length) return <div>Loading product...</div>;
+  if (!product) return <div>Product not found</div>;
 
   if (!product) return <div>Product not found</div>;
 

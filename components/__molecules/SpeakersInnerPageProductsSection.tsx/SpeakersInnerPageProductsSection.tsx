@@ -27,13 +27,13 @@ function SpeakersInnerPageProductsSection({
 
   const handleAddToCart = () => {
     addItem({
-      id: Date.now(), 
+      id: Date.now(),
       name: String(h1),
       price,
       quantity,
       image,
     });
-    setQuantity(1); 
+    setQuantity(1);
   };
 
   return (

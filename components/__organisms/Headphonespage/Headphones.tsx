@@ -1,4 +1,4 @@
-import data from "../../../data.json";
+"use client";
 
 import HeadphonesImage from "../../../public/assets1/headphones.svg";
 import FirstSpeakerImage from "../../../public/assets1/image-removebg-preview(38).svg";
@@ -6,17 +6,26 @@ import EarphoneImg from "../../../public/assets1/earphones.svg";
 import SpeakersPageProductsSmallDivs from "../../__molecules/SpeakersPageProductSmallDivs/SpeakersPageProductsSmallDivs";
 import AboutSection from "../AboutSection";
 import ProductPreview from "../../__molecules/ProductPreview";
+import { useEffect, useState } from "react";
+import { fetchdData } from "../../../app/common/types/Type";
+import { fetchData } from "../../../app/common/funcs/fetch";
 
 export default function HeadphonesPageComp() {
-  const headphones = data.filter((item) => item.category === "headphones");
-  const sorted = [...headphones].sort((a, b) => {
-    const order = [
-      "XX99 Mark II Headphones",
-      "XX99 Mark I Headphones",
-      "XX59 Headphones",
-    ];
-    return order.indexOf(a.name) - order.indexOf(b.name);
-  });
+  const [newdata, setData] = useState<fetchdData[]>([]);
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const data = await fetchData("http://localhost:4000/api/admin");
+        setData(data);
+      } catch (e) {
+        console.error("Error loading data");
+      }
+    }
+
+    loadData();
+  }, []);
+  const headphones = newdata.filter((item) => item.category === "headphones");
+
   return (
     <div className="w-full flex flex-col items-center">
       <div className="w-full h-[238px] bg-black py-24">
@@ -26,10 +35,10 @@ export default function HeadphonesPageComp() {
       </div>
 
       <div className="max-w-[1180px] w-full px-[20px]">
-        {sorted.map((item, idx) => (
+        {headphones.map((item, idx) => (
           <ProductPreview
-            image={item.image.desktop}
-            key={item.id}
+            image={item.image}
+            key={item._id}
             product={item}
             reverse={idx % 2 !== 0}
           />

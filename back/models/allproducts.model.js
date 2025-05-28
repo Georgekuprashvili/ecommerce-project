@@ -1,4 +1,4 @@
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 const includesSchema = new mongoose.Schema({
   quantity: {
@@ -16,6 +16,7 @@ const othersSchema = new mongoose.Schema({
     type: String,
   },
 });
+
 const allProductsSchema = new mongoose.Schema(
   {
     name: {
@@ -40,6 +41,14 @@ const allProductsSchema = new mongoose.Schema(
     features: {
       type: String,
     },
+    category: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+    },
+    gallery: [String],
     includes: [includesSchema],
     others: [othersSchema],
   },

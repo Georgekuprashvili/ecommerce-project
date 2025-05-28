@@ -9,16 +9,18 @@ import Image from "next/image";
 import SpeakersInnerPageProductsSection from "../../__molecules/SpeakersInnerPageProductsSection.tsx/SpeakersInnerPageProductsSection";
 import { SpeakersInnerPageCompInterface } from "../../../app/common/types/Type";
 import SpeakersPageProductsSmallDivs from "../../__molecules/SpeakersPageProductSmallDivs/SpeakersPageProductsSmallDivs";
-
 import Link from "next/link";
+
 function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
+  console.log(product);
+
   return (
     <div className="w-[100%] flex items-center justify-center flex-col  ">
       <div className="w-[100%] flex justify-center mt-[160px]">
         <SpeakersInnerPageProductsSection
           h1={product?.name}
           classname={`max-w-[1180px] w-[100%] mt-[160px] flex items-center justify-between px-[20px] gap-[20px] max-[800px]:flex-col max-[800px]:mt-[120px] max-[800px]:gap-[55px]  `}
-          image={product.image.desktop}
+          image={product.image}
           p={product?.description}
           price={product.price}
         />
@@ -52,30 +54,30 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
       </div>
       <div className="max-w-[1180px] w-full px-[20px] flex mt-[160px] gap-[32px] items-stretch justify-between max-[800px]:flex-col max-[800px]:gap-[20px]">
         <div className="flex flex-col gap-[32px] w-full max-w-[455px] max-[800px]:w-full max-[800px]:max-w-full max-[800px]:gap-[20px]">
-          <Image
-            src={product.gallery.first.desktop}
+          {/* <Image
+            src={image1}
             alt={product.name}
             width={500}
             height={500}
             className="w-full h-auto"
           />
           <Image
-            src={product.gallery.second.desktop}
+            src={image2}
             alt={product.name}
             width={500}
             height={500}
             className="w-full h-auto"
-          />
+          /> */}
         </div>
 
         <div className="w-full max-w-[635px] h-auto max-[800px]:max-w-full">
-          <Image
-            src={product.gallery.third.desktop}
+          {/* <Image
+            src={image3}
             alt={product.name}
             width={500}
             height={1064}
             className="w-full h-full object-cover"
-          />
+          /> */}
         </div>
       </div>
 
@@ -90,13 +92,13 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
               key={key}
             >
               <div className="bg-[#F1F1F1] max-w-[350px]  w-[100%] py-[60px] flex itmes-center justify-center max-[800px]:py-[15px] max-[600px]:max-w-[100%] ">
-                <Image
+                {/* <Image
                   src={item.image.desktop}
                   alt={item.name}
                   width={500}
                   height={500}
                   className="max-w-[250px] w-[100%] h-[220px] max-[800px]:max-w-[110px] max-[800px]:h-[120px]"
-                />
+                /> */}
               </div>
               <h1 className="text-[24px] text-[#000000] font-bold tracking-[1.7px]">
                 {item.name}

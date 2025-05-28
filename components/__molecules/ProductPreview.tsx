@@ -8,7 +8,7 @@ export default function ProductPreview({
 }: {
   product: any;
   reverse?: boolean;
-  image: string;
+  image?: string;
 }) {
   return (
     <div
@@ -18,7 +18,7 @@ export default function ProductPreview({
     >
       <div className="bg-gray-100 w-full md:w-1/2 p-10 flex justify-center">
         <Image
-          src={image}
+          src={image || ""}
           alt={product.name}
           width={400}
           height={400}
@@ -34,7 +34,7 @@ export default function ProductPreview({
         )}
         <h2 className="text-3xl font-bold uppercase mb-6">{product.name}</h2>
         <p className="text-gray-600 mb-6">{product.description}</p>
-        <Link href={`/Headphones/${product.id}`}>
+        <Link href={`/Headphones/${product._id}`}>
           <button className="bg-orange-500 text-white px-6 py-3 uppercase tracking-wider text-sm hover:bg-orange-400 transition">
             See Product
           </button>

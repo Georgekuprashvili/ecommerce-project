@@ -1,27 +1,44 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import FirstSpeakerImage from "../../../public/assets1/image-removebg-preview(38).svg";
 import HeadphonesImage from "../../../public/assets1/headphones.svg";
 import EarphoneImg from "../../../public/assets1/earphones.svg";
 import AboutSection from "../AboutSection";
-import data from "../../../data.json";
 import SpeakersPageProducsSection from "../../__molecules/SpeakersPageProductsSection/SpeakersPageProducsSection";
 import SpeakersPageProductsSmallDivs from "../../__molecules/SpeakersPageProductSmallDivs/SpeakersPageProductsSmallDivs";
+import { fetchData } from "../../../app/common/funcs/fetch";
+import { fetchdData } from "../../../app/common/types/Type";
+
 function SpeakersPageComp() {
-  const Speakers = data.filter((item) => item.category === "speakers");
+  const [newdata, setData] = useState<fetchdData[]>([]);
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const data = await fetchData("http://localhost:4000/api/admin");
+        setData(data);
+      } catch (e) {
+        console.error("Error loading data");
+      }
+    }
+
+    loadData();
+  }, []);
+  const speakers = newdata.filter((item) => item.category === "speakers");
+
   return (
     <div className="w-[100%] flex items-center justify-center flex-col ">
       <p className="flex w-[100%] bg-[#000000] justify-center items-center py-[97px] text-[40px] text-[#FFFFFF] font-bold leading-[44px] tracking-[1.43px] max-[600px]:text-[28px]">
         SPEAKERS
       </p>
-      {Speakers.map((item, key) => (
+      {speakers.map((item, key) => (
         <SpeakersPageProducsSection
-          link={`SpeakersPage/${item.id}`}
+          link={`SpeakersPage/${item._id}`}
           key={key}
           h1={item.name}
           classname={`max-w-[1180px] w-[100%] mt-[160px] flex items-center justify-between px-[20px] gap-[20px] max-[800px]:flex-col max-[800px]:mt-[120px] max-[800px]:gap-[55px] ${
-            item.name === "ZX9 Speaker" ? " flex-row-reverse" : ""
+            key % 2 === 0 ? "" : "flex-row-reverse"
           }  `}
-          image={item.image.desktop}
+          image={item.image}
           p={item.description}
         />
       ))}
@@ -46,7 +63,7 @@ function SpeakersPageComp() {
           alt="EARPHONES"
         />
       </div>
-      <div className="mt-[160px]">
+      <div className="mt-[160px] mb-[160px]">
         <AboutSection />
       </div>
     </div>
