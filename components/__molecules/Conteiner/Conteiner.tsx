@@ -8,6 +8,7 @@ import SignUpPasswordInput from "../SignUpPasswordInput/SignUpPasswordInput";
 import { LoginSchema } from "../../../app/common/ValidationSchema/ValidationSchema";
 import { LoginData } from "../../../app/common/types/Type";
 import { PasswordToggle } from "../../../app/common/Store/Store";
+import axios from "axios";
 
 function Conteiner() {
   const router = useRouter();
@@ -20,8 +21,17 @@ function Conteiner() {
     resolver: yupResolver(LoginSchema),
   });
 
-  const onSubmit = () => {
-    router.push("/HomePage");
+  const onSubmit = async (data: LoginData) => {
+    try {
+      const res = await axios.post("http://localhost:4000/auth/sign-in", {
+        email: data.email,
+        password: data.password,
+      });
+      localStorage.setItem("token", res.data.accessToken);
+      router.push("/HomePage");
+    } catch (error: any) {
+      alert(error?.response?.data?.error || "Login failed");
+    }
   };
   return (
     <form

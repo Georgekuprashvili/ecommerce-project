@@ -5,11 +5,15 @@ const { isValidObjectId } = require("mongoose");
 const allproductsModel = require("./models/allproducts.model");
 const cors = require("cors");
 const multer = require("multer");
+const authRouter = require("./routes/auth.router");
+
 const { upload, deleteFromCloudinary } = require("./config");
 const app = express();
 app.use(cors());
 connectToDb();
 app.use(express.json());
+require("dotenv").config();
+app.use("/auth", authRouter);
 
 app.use(express.static("uploads"));
 

@@ -8,6 +8,7 @@ import SignUpPasswordInput from "../SignUpPasswordInput/SignUpPasswordInput";
 import RegistrationButton from "../../__atoms/RegistrationButton/RegistrationButton";
 import { PasswordToggle } from "../../../app/common/Store/Store";
 import { SignUpData } from "../../../app/common/types/Type";
+import axios from "axios";
 
 function SignUpInputsDiv() {
   const router = useRouter();
@@ -19,8 +20,17 @@ function SignUpInputsDiv() {
   } = useForm<SignUpData>({
     resolver: yupResolver(SignUpSchema),
   });
-  const onSubmit = () => {
-    router.push("/");
+  const onSubmit = async (data: SignUpData) => {
+    try {
+      await axios.post("http://localhost:4000/auth/sign-up", {
+        fullName: data.name,
+        email: data.email,
+        password: data.password,
+      });
+      router.push("/LogIn");
+    } catch (error: any) {
+      alert(error?.response?.data?.error || "Something went wrong");
+    }
   };
   return (
     <form
