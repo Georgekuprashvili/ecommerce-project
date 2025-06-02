@@ -102,57 +102,90 @@ app.post(
     { name: "image3", maxCount: 1 },
   ]),
   async (req, res) => {
-    const {
-      name,
-      slug,
-      price,
-      description,
-      isNew,
-      features,
-      includes,
-      others,
-      category,
-    } = req.body;
-    if (
-      !name ||
-      !slug ||
-      !price ||
-      !description ||
-      !isNew ||
-      !features ||
-      !includes ||
-      !others ||
-      !category ||
-      !req.files?.image ||
-      !req.files?.image1 ||
-      !req.files?.image2 ||
-      !req.files?.image3
-    ) {
-      return res.status(400).json({ error: "fill required fields " });
+    try {
+      const {
+        name,
+        slug,
+        price,
+        description,
+        isNew,
+        features,
+        includes,
+        others,
+        category,
+      } = req.body;
+
+      if (
+        !name ||
+        !slug ||
+        !price ||
+        !description ||
+        !isNew ||
+        !features ||
+        !includes ||
+        !others ||
+        !category ||
+        !req.files?.image ||
+        !req.files?.image1 ||
+        !req.files?.image2 ||
+        !req.files?.image3
+      ) {
+        return res
+          .status(400)
+          .json({ error: "Please fill all required fields" });
+      }
+
+      let parsedIncludes;
+      let parsedOthers;
+      try {
+        parsedIncludes = JSON.parse(includes);
+        parsedOthers = JSON.parse(others);
+      } catch {
+        return res
+          .status(400)
+          .json({ error: "Invalid JSON format in includes or others" });
+      }
+
+      const priceNum = Number(price);
+      if (isNaN(priceNum)) {
+        return res.status(400).json({ error: "Price must be a number" });
+      }
+
+      const isNewBool = isNew === "true" || isNew === true;
+
+      const productExists = await allproductsModel.findOne({ name });
+      if (productExists) {
+        return res.status(400).json({ error: "Such product already exists" });
+      }
+
+      const gallery = [
+        req.files.image1[0].path,
+        req.files.image2[0].path,
+        req.files.image3[0].path,
+      ];
+
+      const createdProduct = await allproductsModel.create({
+        name,
+        slug,
+        price: priceNum,
+        description,
+        isNew: isNewBool,
+        features,
+        includes: parsedIncludes,
+        others: parsedOthers,
+        category,
+        image: req.files.image[0].path,
+        gallery,
+      });
+
+      return res.status(201).json({
+        message: "Product created successfully",
+        product: createdProduct,
+      });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: "Internal server error" });
     }
-    const alreaadyesists = await allproductsModel.findOne({ name });
-    if (alreaadyesists) {
-      return res.status(400).json({ error: "such product already exists" });
-    }
-    const gallery = [
-      req.files.image1?.[0]?.path,
-      req.files.image2?.[0]?.path,
-      req.files.image3?.[0]?.path,
-    ];
-    const createdProduct = await allproductsModel.create({
-      name,
-      slug,
-      price,
-      description,
-      isNew,
-      features,
-      includes,
-      others,
-      category,
-      image: req.files.image[0].path,
-      gallery,
-    });
-    res.status(201).json({ message: "product created successfully" });
   }
 );
 
