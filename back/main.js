@@ -14,6 +14,11 @@ connectToDb();
 app.use(express.json());
 require("dotenv").config();
 app.use("/auth", authRouter);
+const cartRouter = require("./routes/cart.route");
+const orderRouter = require("./routes/order.route");
+
+app.use("/api/cart", cartRouter);
+app.use("/api/order", orderRouter);
 
 app.use(express.static("uploads"));
 
