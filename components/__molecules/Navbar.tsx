@@ -57,6 +57,9 @@ const Navbar = () => {
           <Link className="text-amber-50" href="/EarphonesPage">
             Earphones
           </Link>
+          <Link className="text-amber-50" href="/admin_panel">
+            Admin_panel
+          </Link>
         </div>
 
         <div className="flex items-center gap-6 md:gap-4 max-md:w-full max-md:justify-between">
