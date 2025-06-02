@@ -12,8 +12,6 @@ import SpeakersPageProductsSmallDivs from "../../__molecules/SpeakersPageProduct
 import Link from "next/link";
 
 function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
-  console.log(product);
-
   return (
     <div className="w-[100%] flex items-center justify-center flex-col  ">
       <div className="w-[100%] flex justify-center mt-[160px]">
@@ -54,30 +52,30 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
       </div>
       <div className="max-w-[1180px] w-full px-[20px] flex mt-[160px] gap-[32px] items-stretch justify-between max-[800px]:flex-col max-[800px]:gap-[20px]">
         <div className="flex flex-col gap-[32px] w-full max-w-[455px] max-[800px]:w-full max-[800px]:max-w-full max-[800px]:gap-[20px]">
-          {/* <Image
-            src={image1}
+          <Image
+            src={product.gallery[0]}
             alt={product.name}
             width={500}
             height={500}
             className="w-full h-auto"
           />
           <Image
-            src={image2}
+            src={product.gallery[1]}
             alt={product.name}
             width={500}
             height={500}
             className="w-full h-auto"
-          /> */}
+          />
         </div>
 
         <div className="w-full max-w-[635px] h-auto max-[800px]:max-w-full">
-          {/* <Image
-            src={image3}
+          <Image
+            src={product.gallery[2]}
             alt={product.name}
             width={500}
             height={1064}
             className="w-full h-full object-cover"
-          /> */}
+          />
         </div>
       </div>
 
