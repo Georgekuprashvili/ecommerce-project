@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCartStore } from "../../app/common/Store/useCartStore";
+import { api } from "../../app/common/api";
 
 const CheckoutPage = () => {
   const router = useRouter();
@@ -58,15 +59,39 @@ const CheckoutPage = () => {
     setForm({ ...form, [field]: value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
-    setErrors({});
-    setIsSubmitted(true);
-    clearCart();
+
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return alert("User not authenticated!");
+
+      await api.post(
+        "/api/cart",
+        { items },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      await api.post(
+        "/api/order",
+        {},
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      setIsSubmitted(true);
+      clearCart();
+    } catch (err) {
+      console.error("Failed to place order:", err);
+      alert("Order failed. Try again.");
+    }
   };
 
   return (

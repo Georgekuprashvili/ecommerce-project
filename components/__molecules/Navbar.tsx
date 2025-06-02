@@ -77,11 +77,11 @@ const Navbar = () => {
             onClick={() => setIsCartOpen(!isCartOpen)}
           >
             <FiShoppingCart />
-            {/* {itemCount > 0 && (
+            {itemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 rounded-full text-xs px-2">
                 {itemCount}
               </span>
-            )} */}
+            )}
           </div>
         </div>
       </div>
