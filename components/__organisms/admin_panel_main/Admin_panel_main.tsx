@@ -2,9 +2,6 @@
 
 import { useState } from "react";
 
-const inputClass =
-  "w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2";
-
 export default function AddProductPage() {
   const [inputKey, setInputKey] = useState(0);
   const [product, setProduct] = useState({
@@ -21,7 +18,6 @@ export default function AddProductPage() {
     others: [{ slug: "", name: "" }],
   });
 
-  // Basic handlers
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked, files } = e.target;
     setProduct((prev) => ({
@@ -152,7 +148,7 @@ export default function AddProductPage() {
           name="name"
           placeholder="Name"
           onChange={handleChange}
-          className={inputClass}
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
           value={product.name}
         />
         <input
@@ -160,7 +156,7 @@ export default function AddProductPage() {
           name="slug"
           placeholder="Slug"
           onChange={handleChange}
-          className={inputClass}
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
           value={product.slug}
         />
         <input
@@ -168,7 +164,7 @@ export default function AddProductPage() {
           name="price"
           placeholder="Price"
           onChange={handleChange}
-          className={inputClass}
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
           value={product.price}
         />
         <input
@@ -176,7 +172,7 @@ export default function AddProductPage() {
           name="category"
           placeholder="Category"
           onChange={handleChange}
-          className={inputClass}
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
           value={product.category}
         />
         <input
@@ -184,7 +180,7 @@ export default function AddProductPage() {
           name="features"
           placeholder="Features"
           onChange={handleChange}
-          className={inputClass}
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
           value={product.features}
         />
         <input
@@ -192,7 +188,7 @@ export default function AddProductPage() {
           name="description"
           placeholder="Description"
           onChange={handleChange}
-          className={inputClass}
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
           value={product.description}
         />
         <input
@@ -200,7 +196,7 @@ export default function AddProductPage() {
           name="image"
           accept="image/*"
           onChange={handleChange}
-          className={inputClass}
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
         />
         <label className="flex items-center gap-2 col-span-2">
           <input
@@ -222,7 +218,7 @@ export default function AddProductPage() {
           onChange={(e) =>
             handleArrayChange(i, e.target.files?.[0] ?? null, "gallery")
           }
-          className={inputClass}
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
         />
       ))}
 
@@ -240,7 +236,7 @@ export default function AddProductPage() {
               handleIncludesChange(i, "quantity", e.target.value)
             }
             placeholder="Quantity"
-            className={inputClass}
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
             min={0}
           />
           <input
@@ -248,7 +244,7 @@ export default function AddProductPage() {
             value={include.item}
             onChange={(e) => handleIncludesChange(i, "item", e.target.value)}
             placeholder="Item Name"
-            className={inputClass}
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
           />
           <button
             type="button"
@@ -278,14 +274,14 @@ export default function AddProductPage() {
             value={other.slug}
             onChange={(e) => handleOthersChange(i, "slug", e.target.value)}
             placeholder="Slug"
-            className={inputClass}
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
           />
           <input
             type="text"
             value={other.name}
             onChange={(e) => handleOthersChange(i, "name", e.target.value)}
             placeholder="Name"
-            className={inputClass}
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
           />
           <button
             type="button"
