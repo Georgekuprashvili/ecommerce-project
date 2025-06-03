@@ -28,17 +28,29 @@ authRouter.post("/sign-up", async (req, res) => {
 
 authRouter.post("/sign-in", async (req, res) => {
   const { email, password } = req.body;
-  const user = await userModel
+  if (!email || !password)
+    return res.status(400).json({ error: "fields ara requred" });
+
+  const existUser = await userModel
     .findOne({ email: email.toLowerCase() })
-    .select("+password");
-  if (!user || !(await bcrypt.compare(password, user.password))) {
-    return res.status(400).json({ error: "Invalid credentials" });
+    .select("password");
+  if (!existUser) {
+    return res.status(400).json({ error: "email or pasword is incorrect" });
   }
 
-  const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+  const isPassEqual = await bcrypt.compare(password, existUser.password);
+  if (!isPassEqual) {
+    return res.status(400).json({ error: "email or pasword is incorrect" });
+  }
+
+  const payLoad = {
+    userId: existUser._id,
+  };
+
+  const accessToken = jwt.sign(payLoad, process.env.JWT_SECRET, {
     expiresIn: "1h",
   });
-  res.json({ accessToken: token });
+  res.json({ accessToken });
 });
 
 authRouter.get("/current-user", isAuth, async (req, res) => {
