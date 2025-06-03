@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const Order = require("../models/order.model");
 const Cart = require("../models/cart.model");
+const User = require("../models/user.model");
 const isAuth = require("../middlewares/isAuth");
 
 router.post("/", isAuth, async (req, res) => {
@@ -16,15 +16,23 @@ router.post("/", isAuth, async (req, res) => {
     0
   );
 
-  const order = await Order.create({
+  const updatedUser = await User.findByIdAndUpdate(
     userId,
-    items: cart.items,
-    total,
-  });
+    {
+      $push: {
+        orders: {
+          items: cart.items,
+          total: total,
+          createdAt: new Date(),
+        },
+      },
+    },
+    { new: true }
+  );
 
   await Cart.findOneAndDelete({ userId });
 
-  res.status(201).json({ message: "Order placed", order });
+  res.status(201).json({ message: "Order placed", orders: updatedUser.orders });
 });
 
 module.exports = router;
