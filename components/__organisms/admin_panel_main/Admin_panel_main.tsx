@@ -198,12 +198,13 @@ export default function AddProductPage() {
           onChange={handleChange}
           className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 mb-2"
         />
-        <label className="flex items-center gap-2 col-span-2">
+        <label className="flex items-center gap-2 col-span-2  cursor-pointer ">
           <input
             type="checkbox"
             name="isNew"
             checked={product.isNew}
             onChange={handleChange}
+            className="cursor-pointer"
           />
           <span>Is New</span>
         </label>
@@ -249,7 +250,7 @@ export default function AddProductPage() {
           <button
             type="button"
             onClick={() => removeInclude(i)}
-            className="text-red-600 hover:underline"
+            className="text-red-600 hover:underline  cursor-pointer "
           >
             Remove
           </button>
@@ -258,7 +259,7 @@ export default function AddProductPage() {
       <button
         type="button"
         onClick={addInclude}
-        className="mt-2 px-4 py-1 bg-green-600 text-white rounded hover:bg-green-700"
+        className="mt-2 px-4 py-1 bg-green-600 text-white rounded hover:bg-green-700  cursor-pointer "
       >
         Add Include
       </button>
@@ -286,7 +287,7 @@ export default function AddProductPage() {
           <button
             type="button"
             onClick={() => removeOther(i)}
-            className="text-red-600 hover:underline"
+            className="text-red-600 hover:underline  cursor-pointer   "
           >
             Remove
           </button>
@@ -295,14 +296,14 @@ export default function AddProductPage() {
       <button
         type="button"
         onClick={addOther}
-        className="mt-2 px-4 py-1 bg-green-600 text-white rounded hover:bg-green-700"
+        className="  cursor-pointer mt-2 px-4 py-1 bg-green-600 text-white rounded hover:bg-green-700"
       >
         Add Other
       </button>
 
       <button
         onClick={handleSubmit}
-        className="mt-6 bg-black text-white px-4 py-2 rounded hover:bg-orange-600 transition"
+        className=" cursor-pointer mt-6 bg-black text-white px-4 py-2 rounded hover:bg-orange-600 transition"
       >
         Submit
       </button>
