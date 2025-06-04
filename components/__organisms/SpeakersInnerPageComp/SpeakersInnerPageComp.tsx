@@ -1,17 +1,38 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FirstSpeakerImage from "../../../public/assets1/image-removebg-preview(38).svg";
 import HeadphonesImage from "../../../public/assets1/headphones.svg";
 import EarphoneImg from "../../../public/assets1/earphones.svg";
 import AboutSection from "../AboutSection";
 import Image from "next/image";
 import SpeakersInnerPageProductsSection from "../../__molecules/SpeakersInnerPageProductsSection.tsx/SpeakersInnerPageProductsSection";
-import { SpeakersInnerPageCompInterface } from "../../../app/common/types/Type";
+import {
+  fetchdData,
+  SpeakersInnerPageCompInterface,
+} from "../../../app/common/types/Type";
 import SpeakersPageProductsSmallDivs from "../../__molecules/SpeakersPageProductSmallDivs/SpeakersPageProductsSmallDivs";
 import Link from "next/link";
+import { fetchData } from "../../../app/common/funcs/fetch";
 
 function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
+  const [newdata, setData] = useState<fetchdData[]>([]);
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const data = await fetchData("http://localhost:4000/api/admin");
+        setData(data);
+      } catch (e) {
+        console.error("Error loading data");
+      }
+    }
+
+    loadData();
+  }, []);
+  const speakers = newdata
+    .filter((item) => item.category === "speakers")
+    .slice(0, 3);
+
   return (
     <div className="w-[100%] flex items-center justify-center flex-col  ">
       <div className="w-[100%] flex justify-center mt-[160px]">
@@ -84,25 +105,25 @@ function SpeakersInnerPageComp({ product }: SpeakersInnerPageCompInterface) {
           you may also like
         </h1>
         <div className="w-[100%] flex items-center justify-between mt-[64px] gap-[20px] max-[600px]:flex-col">
-          {product.others.map((item, key) => (
+          {speakers.map((item, key) => (
             <div
               className="flex flex-col items-center justify-center gap-[45px] w-[100%]"
               key={key}
             >
               <div className="bg-[#F1F1F1] max-w-[350px]  w-[100%] py-[60px] flex itmes-center justify-center max-[800px]:py-[15px] max-[600px]:max-w-[100%] ">
-                {/* <Image
-                  src={item.image.desktop}
+                <Image
+                  src={item.image}
                   alt={item.name}
                   width={500}
                   height={500}
                   className="max-w-[250px] w-[100%] h-[220px] max-[800px]:max-w-[110px] max-[800px]:h-[120px]"
-                /> */}
+                />
               </div>
               <h1 className="text-[24px] text-[#000000] font-bold tracking-[1.7px]">
                 {item.name}
               </h1>
               <Link
-                href={`/products/${item.slug}`}
+                href={`/SpeakersPage/${item._id}`}
                 className="bg-[#D87D4A] text-[#fff] px-[29px] py-[15px] cursor-pointer font-bold text-[13px] tracking-[1px] hover:bg-[#FBAF85]"
               >
                 See Product
