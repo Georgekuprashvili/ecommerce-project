@@ -10,11 +10,35 @@ import CartDrawer from "../__organisms/CartDrawer";
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const itemCount = useCartStore((state) => state.itemCount());
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
+  const itemCount = useCartStore((state) => state.itemCount());
   const dropdownRef = useRef<HTMLDivElement>(null);
+
   const shouldHide =
     pathname === "/LogIn" || pathname === "/SignUp" || pathname === "/";
+
+  useEffect(() => {
+    const storedEmail = localStorage.getItem("userEmail");
+    if (storedEmail) {
+      setUserEmail(storedEmail);
+    }
+
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    fetch("http://localhost:4000/auth/current-user", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.email) setUserEmail(data.email);
+      })
+      .catch(() => {});
+  }, []);
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -35,11 +59,11 @@ const Navbar = () => {
 
   return (
     <div
-      className={`w-full bg-black text-white flex items-center justify-center  ${
+      className={`w-full bg-black text-white flex items-center justify-center ${
         shouldHide ? "hidden" : ""
       }`}
     >
-      <div className="max-w-[1180px] w-[100%] flex justify-between items-center px-[20px] py-[35px] ">
+      <div className="max-w-[1180px] w-full flex justify-between items-center px-5 py-9">
         <h1 className="font-bold text-xl text-amber-50 max-md:hidden">
           audiophile
         </h1>
@@ -57,9 +81,11 @@ const Navbar = () => {
           <Link className="text-amber-50" href="/EarphonesPage">
             Earphones
           </Link>
-          <Link className="text-amber-50" href="/admin_panel">
-            Admin_panel
-          </Link>
+          {userEmail === "admin@gmail.com" && (
+            <Link className="text-amber-50" href="/admin_panel">
+              Admin Panel
+            </Link>
+          )}
         </div>
 
         <div className="flex items-center gap-6 md:gap-4 max-md:w-full max-md:justify-between">
@@ -91,40 +117,49 @@ const Navbar = () => {
 
       <div
         ref={dropdownRef}
-        className={`absolute w-[200px] left-[20px] top-[96px] md:hidden flex flex-col items-center justify-center  gap-6 bg-[#F1F1F1] text-amber-50 text-sm tracking-widest uppercase overflow-hidden transition-all duration-800 ease-in-out z-2 ${
-          isOpen ? "h-[200px] " : "h-[0px]"
+        className={`absolute w-[200px] left-5 top-[96px] md:hidden flex flex-col items-center justify-center gap-6 bg-[#F1F1F1] text-amber-50 text-sm tracking-widest uppercase overflow-hidden transition-all duration-800 ease-in-out z-2 ${
+          isOpen ? "h-[200px]" : "h-0"
         }`}
       >
         {isOpen && (
-          <div className=" md:hidden flex  flex-col items-center gap-6   text-black text-sm tracking-widest uppercase">
+          <div className="md:hidden flex flex-col items-center gap-6 text-black text-sm tracking-widest uppercase">
             <Link
-              className=" border-b-solid border-b-[1px] cursor-pointer"
+              className="border-b border-black cursor-pointer"
               href="/HomePage"
               onClick={() => setIsOpen(false)}
             >
               Home
             </Link>
             <Link
-              className=" border-b-solid border-b-[1px] cursor-pointer"
+              className="border-b border-black cursor-pointer"
               href="/Headphones"
               onClick={() => setIsOpen(false)}
             >
               Headphones
             </Link>
             <Link
-              className=" border-b-solid border-b-[1px] cursor-pointer"
+              className="border-b border-black cursor-pointer"
               href="/SpeakersPage"
               onClick={() => setIsOpen(false)}
             >
               Speakers
             </Link>
             <Link
-              className=" border-b-solid border-b-[1px] cursor-pointer"
+              className="border-b border-black cursor-pointer"
               href="/EarphonesPage"
               onClick={() => setIsOpen(false)}
             >
               Earphones
             </Link>
+            {userEmail === "admin@gmail.com" && (
+              <Link
+                className="border-b border-black cursor-pointer"
+                href="/admin_panel"
+                onClick={() => setIsOpen(false)}
+              >
+                Admin Panel
+              </Link>
+            )}
           </div>
         )}
       </div>

@@ -28,6 +28,7 @@ function Conteiner() {
         password: data.password,
       });
       localStorage.setItem("token", res.data.accessToken);
+      localStorage.setItem("userEmail", res.data.email);
       router.push("/HomePage");
     } catch (error: any) {
       alert(error?.response?.data?.error || "Login failed");

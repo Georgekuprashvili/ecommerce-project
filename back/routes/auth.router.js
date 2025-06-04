@@ -33,7 +33,7 @@ authRouter.post("/sign-in", async (req, res) => {
 
   const existUser = await userModel
     .findOne({ email: email.toLowerCase() })
-    .select("password");
+    .select("email password");
   if (!existUser) {
     return res.status(400).json({ error: "email or pasword is incorrect" });
   }
@@ -50,7 +50,7 @@ authRouter.post("/sign-in", async (req, res) => {
   const accessToken = jwt.sign(payLoad, process.env.JWT_SECRET, {
     expiresIn: "1h",
   });
-  res.json({ accessToken });
+  res.json({ accessToken, email: existUser.email });
 });
 
 authRouter.get("/current-user", isAuth, async (req, res) => {

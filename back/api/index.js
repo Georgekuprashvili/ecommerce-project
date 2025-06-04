@@ -6,6 +6,7 @@ const authRouter = require("../routes/auth.router");
 const isAuth = require("../middlewares/isAuth");
 const cors = require("cors");
 require("dotenv").config();
+const adminRouter = require("../routes/admin.route");
 
 const app = express();
 
@@ -13,11 +14,8 @@ app.use(cors());
 app.use(express.json());
 connectToDb();
 
+app.use("/api/admin", adminRouter);
 app.use("/auth", authRouter);
-
-app.get("/api/health", (req, res) => {
-  res.json({ success: true, message: "Backend is alive." });
-});
 
 app.get("/api/products", async (req, res) => {
   const products = await productModel.find();
